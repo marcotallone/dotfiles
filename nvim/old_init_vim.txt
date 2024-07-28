@@ -1,0 +1,87 @@
+" PLUG-INs
+" -------------------------------------------------------------------------------------------------
+call plug#begin()
+Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+Plug 'https://github.com/preservim/nerdtree' " NerdTree
+Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+Plug 'vim-airline/vim-airline-themes' " Status bar themes
+Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
+Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
+Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
+Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
+Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
+Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
+Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plug 'https://github.com/junegunn/fzf.vim' " Fuzzy Finder, Needs Silversearcher-ag for :Ag
+Plug 'https://github.com/junegunn/fzf'
+" Plug 'https://github.com/folke/trouble.nvim'
+" Plug 'nvim-tree/nvim-web-devicons'
+" Plug 'folke/lsp-colors.nvim'
+call plug#end()
+
+" GENERAL SETTINGS
+" -------------------------------------------------------------------------------------------------
+:set number
+:set relativenumber
+:set autoindent
+:set tabstop=4
+:set shiftwidth=4
+:set smarttab
+:set softtabstop=4
+:set mouse=a
+:set completeopt-=preview " For No Previews
+:set completeopt-=preview " For No Previews
+set encoding=UTF-8
+:colorscheme onedark
+
+" REMAPPED SHORTCUTS FOR NEOVIM
+" -------------------------------------------------------------------------------------------------
+" Find
+map <C-f> :Ag<CR>
+
+" Save
+map <C-s> :w<CR>
+
+" Exit
+map <C-x> :q<CR>
+
+" Copy on clipboard
+map <C-c> "+y<CR>
+
+" Paste form clipboard
+map <C-p> "+p<CR>
+
+" TAGBAR SETTINGS
+" -------------------------------------------------------------------------------------------------
+nmap <C-l> :TagbarToggle<CR>
+
+" NERDTREE SETTINGS
+" -------------------------------------------------------------------------------------------------
+" nnoremap <C-f> :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+" AIRLINE SETTINGS
+" -------------------------------------------------------------------------------------------------
+let g:airline_theme='onedark'
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ':'
+let g:airline_symbols.colnr = ' ℅:'
+let g:airline_symbols.maxlinenr = '☰ '
+
+" COC-AUTOCOMPLETION SETTINGS
+" -------------------------------------------------------------------------------------------------
+" This below allows to confirm autocompletion with <tab> key
+inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
