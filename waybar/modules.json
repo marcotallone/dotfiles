@@ -181,7 +181,7 @@
 
     // Hyprshade
     "custom/hyprshade": {
-        "format": "",
+        "format": "󰌵",
         "tooltip-format": "Toggle Screen Shader",
         "on-click": "sleep 0.5; ~/dotfiles/hypr/scripts/hyprshade.sh",
         "on-click-right": "sleep 0.5; ~/dotfiles/hypr/scripts/hyprshade.sh rofi"
@@ -234,21 +234,24 @@
 
     // CPU
     "cpu": {
-        "format": "/ C {usage}% ",
+        // "format": "/ C {usage}% ",
+        "format": "|    {usage}% ",
         "on-click": "~/dotfiles/.settings/systeminfo.sh"
     },
 
     // Memory
     "memory": {
-        "format": "/ M {}% ",
+        // "format": "/ M {}% ",
+        "format": "|     {}% ",
         "on-click": "~/dotfiles/.settings/systeminfo.sh"
     },
 
     // Harddisc space used
     "disk": {
         "interval": 30,
-        "format": "D {percentage_used}% ",
-        "path": "/",
+        // "format": "D {percentage_used}% ",
+        "format": "  {percentage_used}% ",
+        "path": "/home/",
         "on-click": "~/dotfiles/.settings/systeminfo.sh"
     }, 
 
@@ -381,5 +384,36 @@
         "format": "{user}",
         "interval": 60,
         "icon": false
+    },
+
+    // Group Settings personalized
+    "group/settings2": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "not-memory",
+            "transition-left-to-right": true
+        },            
+        "modules": [
+            "custom/settings",
+            "custom/waybarthemes",
+            "custom/wallpaper",
+            "custom/ml4w-hyprland-settings",
+            "custom/ml4w-welcome"
+        ]
+    },
+
+    // Empty for spacing
+    "custom/empty2": {
+        "format": " "
+    },
+
+    "temperature": {
+        "format": "|  {temperatureC}°C",
+        "interval": 60,
+        "thermal-zone": 0,
+        "critical-threshold": 75,
+        "warning-threshold": 60
     }
+
 }

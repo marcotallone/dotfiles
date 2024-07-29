@@ -137,7 +137,7 @@ alias wifi='nmtui'
 
 # Dotfiles
 # alias ts='~/dotfiles/scripts/snapshot.sh'
-alias dot="cd ~/dotfiles"
+alias dot="cd ~/dotfiles && $EDITOR"
 # alias cleanup='~/dotfiles/scripts/cleanup.sh'
 
 # Aliases for ls (eza)
@@ -171,3 +171,9 @@ source "/usr/share/fzf/completion.zsh"
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
+# -----------------------------------------------------
+# EXPORTS
+# -----------------------------------------------------
+export QT_QPA_PLATFORMTHEME="qt5ct"
+# export QT_STYLE_OVERRIDE="qt5ct" 
