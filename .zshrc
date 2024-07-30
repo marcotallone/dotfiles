@@ -1,3 +1,31 @@
+#                            88                                   
+#                            88                                   
+#                            88                                   
+#      888888888  ,adPPYba,  88,dPPYba,   8b,dPPYba,   ,adPPYba,  
+#           a8P"  I8[    ""  88P'    "8a  88P'   "Y8  a8"     ""  
+#        ,d8P'     `"Y8ba,   88       88  88          8b          
+# 888  ,d8"       aa    ]8I  88       88  88          "8a,   ,aa  
+# 888  888888888  `"YbbdP"'  88       88  88           `"Ybbd8"'
+#
+# by Marco Tallone (2024)
+# -----------------------------------------------------
+# ~/.zshrc
+# -----------------------------------------------------
+
+
+# -----------------------------------------------------
+# ALIASES
+# -----------------------------------------------------
+
+# Source the aliases file
+if [ -f ~/.zsh_aliases ]; then
+		source ~/.zsh_aliases
+fi
+
+
+# -----------------------------------------------------
+# POWERLEVEL10K
+# -----------------------------------------------------
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -5,6 +33,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# -----------------------------------------------------
+# OH MY ZSH
+# -----------------------------------------------------
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -85,7 +122,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+
+# -----------------------------------------------------
+# USER CONFIGURATION
+# -----------------------------------------------------
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -98,82 +138,3 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-# -----------------------------------------------------
-# ALIASES
-# -----------------------------------------------------
-
-# General
-alias c='clear'
-alias nf='fastfetch'
-alias pf='fastfetch'
-alias ff='fastfetch'
-alias shutdown='systemctl poweroff'
-alias wifi='nmtui'
-
-# Editor
-# alias v='$EDITOR'
-# alias vim='$EDITOR'
-
-# Dotfiles
-# alias ts='~/dotfiles/scripts/snapshot.sh'
-alias dot="cd ~/dotfiles && $EDITOR"
-# alias cleanup='~/dotfiles/scripts/cleanup.sh'
-
-# Aliases for ls (eza)
-alias ls='eza -a --icons'
-alias ll='eza -alh --icons'
-alias lt='eza -a --tree --level=1 --icons'
-alias tree="eza --tree"
-
-# Git
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gp="git push"
-alias gpl="git pull"
-alias gst="git stash"
-alias gsp="git stash; git pull"
-alias gcheck="git checkout"
-alias gcredential="git config credential.helper store"
-
-
-# Aliases for cat (batcat)
-if command -v bat > /dev/null; then
-	alias cat="bat"
-elif command -v batcat > /dev/null; then
-	alias cat="batcat"
-fi
-
-# Enable fzf
-source "/usr/share/fzf/key-bindings.zsh"
-source "/usr/share/fzf/completion.zsh"
-
-# Zoxide
-eval "$(zoxide init zsh)"
-
-# -----------------------------------------------------
-# EXPORTS
-# -----------------------------------------------------
-# export QT_QPA_PLATFORMTHEME="qt5ct"
-# export QT_STYLE_OVERRIDE="qt5ct" 
