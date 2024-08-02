@@ -174,19 +174,26 @@ return {
 				})
 			end, { nargs = "*", range = true })
 
-			-- Add which-key mappings
-			local wk = require("which-key")
-			wk.register({
-				g = {
-					m = {
-						name = "+Copilot Chat",
-						d = "Show diff",
-						p = "System prompt",
-						s = "Show selection",
-						y = "Yank diff",
-					},
-				},
-			})
+			-- Add which-key mappings (causees issues due to update...)
+			-- local wk = require("which-key")
+			-- wk.register({
+			-- 	{ "gm", group = "Copilot Chat" },
+			-- 	{ "gmd", desc = "Show diff" },
+			-- 	{ "gmp", desc = "System prompt" },
+			-- 	{ "gms", desc = "Show selection" },
+			-- 	{ "gmy", desc = "Yank diff" },
+			-- })
+			-- wk.register({
+			-- 	g = {
+			-- 		m = {
+			-- 			name = "+Copilot Chat",
+			-- 			d = "Show diff",
+			-- 			p = "System prompt",
+			-- 			s = "Show selection",
+			-- 			y = "Yank diff",
+			-- 		},
+			-- 	},
+			-- })
 		end,
 		event = "VeryLazy",
 		keys = {

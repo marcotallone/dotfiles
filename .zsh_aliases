@@ -29,7 +29,7 @@ alias v=vim
 
 # Dotfiles
 # alias ts='~/dotfiles/scripts/snapshot.sh'
-alias dot="cd ~/dotfiles && $EDITOR"
+alias dot="cd ~/dotfiles"
 # alias cleanup='~/dotfiles/scripts/cleanup.sh'
 
 # Aliases for ls (eza)
@@ -56,10 +56,9 @@ elif command -v batcat > /dev/null; then
 	alias cat="batcat"
 fi
 
-# Enable fzf
-source "/usr/share/fzf/key-bindings.zsh"
-source "/usr/share/fzf/completion.zsh"
-
-# Zoxide
-eval "$(zoxide init zsh)"
+# Kubernetes
+alias k="kubectl"
+alias kpod="kubectl get pods"
+alias ksvc="kubectl get svc"
+alias kd="kubectl describe"
 

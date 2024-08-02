@@ -6,7 +6,6 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- pending updates count
 
@@ -58,7 +57,8 @@ return {
 		lualine.setup({
 			options = {
 				-- theme = 'catppuccin'
-				theme = 'iceberg_dark'
+				-- theme = 'iceberg_dark'
+				theme = "tokyonight",
 				-- theme = 'my_lualine_theme'
 			},
 			sections = {
