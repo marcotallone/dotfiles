@@ -146,3 +146,4 @@ source "/usr/share/fzf/completion.zsh"
 # Zoxide
 eval "$(zoxide init zsh)"
 
+export KUBECONFIG=/home/marco/.kube/config.demo

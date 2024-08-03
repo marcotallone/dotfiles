@@ -18,10 +18,40 @@
     }, 
 
     "custom/quicklink4": {
-        "format": "",
-        "on-click": "betterbird",
-        "tooltip-format": "Open Betterbird"
+        "format": "󰊫",
+        "on-click": "firefox https://mail.google.com/",
+        "tooltip-format": "Open Gmail"
     }, 
+
+		"custom/quicklink5": {
+				"format": "",
+				"on-click": "spotify",
+				"tooltip-format": "Open Spotify"
+		},
+
+		"custom/quicklink6": {
+				"format": "",
+				"on-click": "firefox https://github.com/",
+				"tooltip-format": "Open Github"
+		},
+
+		"custom/quicklink7": {
+				"format": "",
+				"on-click": "firefox https://www.youtube.com/",
+				"tooltip-format": "Open Youtube"
+		},
+
+		"custom/quicklink8": {
+				"format": "󰊻",
+				"on-click": "firefox https://teams.microsoft.com/v2/",
+				"tooltip-format": "Open Teams"
+		},
+
+		"custom/quicklink9": {
+				"format": "󰴢",
+				"on-click": "firefox https://outlook.office.com/mail/",
+				"tooltip-format": "Open Outlook"
+		},
 
     "custom/quicklinkempty": {
     }, 
@@ -31,8 +61,12 @@
         "orientation": "horizontal",
         "modules": [
             "custom/quicklink2",
-            "custom/quicklink3",
-            "custom/quicklinkempty"
+            "custom/quicklink4",
+						"custom/quicklink9",
+            "custom/quicklink6",
+            "custom/quicklink7",
+						"custom/quicklink8",
+            "custom/quicklink3"
         ]
     }
 }
