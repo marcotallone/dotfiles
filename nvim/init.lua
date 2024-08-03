@@ -17,17 +17,20 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Enable termguicolors for true color support (tmux)
+vim.o.termguicolors = true
+
 -- This second snippet is the main entry point for the lazy loader.
 -- Here we require the necessary modules to set up the nvim configuration.
-require("options")					-- general nvim settings
-require("keymaps")					-- general purpose key mappings
-require("lazy").setup(			-- lazy loader launcher
+require("options") -- general nvim settings
+require("keymaps") -- general purpose key mappings
+require("lazy").setup( -- lazy loader launcher
 	{
-		{ import = "plugins" }, -- plugins folder 
+		{ import = "plugins" }, -- plugins folder
 		{ import = "plugins.lsp" }, -- lsp folder
 	},
 	{
-		change_detection = {		-- disable changes notifications
+		change_detection = { -- disable changes notifications
 			notify = false,
 		},
 	}
