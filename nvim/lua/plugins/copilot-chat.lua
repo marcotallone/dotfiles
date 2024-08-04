@@ -149,6 +149,24 @@ return {
 				})
 			end, { nargs = "*", range = true })
 
+			-- Open Copilot Chat Window
+			vim.api.nvim_create_user_command("OpenCopilotWindow", function()
+				local chat = require("CopilotChat")
+				local select = require("CopilotChat.select")
+
+				chat.ask("", {
+					selection = select.visual,
+					window = {
+						layout = "float",
+						relative = "editor",
+						width = 1, -- Adjust the width as needed
+						height = 1, -- Adjust the height as needed
+						row = 1, -- Adjust the row position as needed
+						col = 0, -- Adjust the column position as needed
+					},
+				})
+			end, { nargs = 0 })
+
 			-- Restore CopilotChatBuffer
 			vim.api.nvim_create_user_command("CopilotChatBuffer", function(args)
 				chat.ask(args.args, { selection = select.buffer })

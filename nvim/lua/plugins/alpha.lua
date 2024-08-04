@@ -38,6 +38,8 @@ return {
 			dashboard.button("f", "󰈞  Find File", ":Telescope find_files<CR>"),
 			-- find string:
 			dashboard.button("g", "  Live Word", ":Telescope live_grep<CR>"),
+			-- copilot
+			dashboard.button("c", "  Copilot", ":OpenCopilotWindow<CR>"),
 			-- settings:
 			dashboard.button("s", "  Settings", ":e ~/.config/nvim/<CR>"),
 			-- restore session:
