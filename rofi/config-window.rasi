@@ -8,7 +8,7 @@
 # 88          "8a,   ,a8"   88     88  
 # 88           `"YbbdP"'    88     88
 # -----------------------------------
-# Rofi configuration file - MAIN
+# Rofi configuration file - WINDOW
 # -----------------------------------
 # Version: 1.7.3
 # -----------------------------------
@@ -19,7 +19,7 @@
 configuration {
 
 	/* # General settings */
-	modi:										"drun,run,filebrowser,window,emoji";
+	modi:										"window";
 	font:                   "monospace 12";
 	case-sensitive:					false;
 	cycle:									true;
@@ -203,4 +203,5 @@ configuration {
 }
 
 /* # Theme */
-@import "~/.config/rofi/launchers/type-1/style-7.rasi"
+@import "~/.config/rofi/launchers/type-2/style-13.rasi"
+

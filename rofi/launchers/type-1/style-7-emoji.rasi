@@ -9,7 +9,7 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,run,filebrowser,window,emoji";
+	modi:                       "drun,run";
     show-icons:                 true;
     display-drun:               " Apps";
     display-run:                " Run";
@@ -25,7 +25,7 @@ configuration {
 @import                          "shared/fonts.rasi"
 
 * {
-    border-colour:               var(selected);
+    border-colour:               transparent;
     handle-colour:               var(selected);
     background-colour:           var(background);
     foreground-colour:           var(foreground);
@@ -117,7 +117,7 @@ textbox-prompt-colon {
     enabled:                     true;
     padding:                     5px 0px;
     expand:                      false;
-    str:                         " ";
+    str:                         "😀 ";
     background-color:            inherit;
     text-color:                  inherit;
 }
@@ -127,7 +127,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
+    placeholder:                 "Search emoij...";
     placeholder-color:           inherit;
 }
 num-filtered-rows {
@@ -251,7 +251,7 @@ element-text {
 
 /*****----- Mode Switcher -----*****/
 mode-switcher{
-    enabled:                     true;
+    enabled:                     false;
     expand:                      false;
     spacing:                     0px;
     margin:                      0px;
@@ -312,3 +312,5 @@ error-message {
     background-color:            @background-colour;
     text-color:                  @foreground-colour;
 }
+
+

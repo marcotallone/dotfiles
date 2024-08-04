@@ -57,6 +57,7 @@
         // "group/hardware",
         // "group/tools",
         "tray",
+				"custom/emoji",
         "custom/cliphist",
         "custom/hyprshade",
         "group/settings2",

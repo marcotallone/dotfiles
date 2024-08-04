@@ -93,6 +93,14 @@
         "tooltip-format": "Clipboard Manager"
     },
 
+    // Emoji Picker
+    "custom/emoji": {
+        "format": "󰱱",
+        "on-click": "sleep 0.1 && ~/dotfiles/scripts/emojipick.sh",
+        "on-click-right": "sleep 0.1 && ~/dotfiles/scripts/emojipick.sh",
+        "tooltip-format": "Emoji Picker"
+    },
+
     // Updates Count
     "custom/updates": {
         "format": "   {}",
@@ -396,8 +404,6 @@
         },            
         "modules": [
             "custom/settings",
-            "custom/waybarthemes",
-            "custom/wallpaper",
             "custom/ml4w-hyprland-settings",
             "custom/ml4w-welcome"
         ]
