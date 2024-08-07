@@ -146,4 +146,21 @@ source "/usr/share/fzf/completion.zsh"
 # Zoxide
 eval "$(zoxide init zsh)"
 
-export KUBECONFIG=/home/marco/.kube/config.demo
+# Open pdf function with zathura & disown
+open(){
+	zathura $1 & disown
+}
+
+# Vagrant Docker container for libvirt (function)
+vagrant(){
+  docker run -it --rm \
+		--privileged \
+		-e LIBVIRT_DEFAULT_URI="qemu:///system" \
+    -v /var/run/libvirt/:/var/run/libvirt/ \
+    -v ~/.vagrant.d:/.vagrant.d \
+    -v $(realpath "${PWD}"):${PWD} \
+    -w "${PWD}" \
+    --network host \
+    vagrantlibvirt/vagrant-libvirt:latest \
+      vagrant $@
+}

@@ -33,7 +33,7 @@ return {
 
 		nvimtree.setup({
 			view = {
-				width = 50,
+				width = 40,
 				relativenumber = true,
 			},
 			sort = {
@@ -68,7 +68,7 @@ return {
 				custom = { ".DS_Store" },
 			},
 			git = {
-				ignore = true,
+				ignore = false,
 			},
 		})
 
