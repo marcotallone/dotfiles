@@ -259,7 +259,7 @@
         "interval": 30,
         // "format": "D {percentage_used}% ",
         "format": "  {percentage_used}% ",
-        "path": "/home/",
+        "path": "/",
         "on-click": "~/dotfiles/.settings/systeminfo.sh"
     }, 
 

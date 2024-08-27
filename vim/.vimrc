@@ -9,6 +9,7 @@
 
 " Add line numbers
 set number
+set relativenumber
 
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
@@ -32,13 +33,13 @@ set shiftwidth=4
 set tabstop=4
 
 " Use space characters instead of tabs.
-set expandtab
+" set expandtab
 
 " Do not save backup files.
 set nobackup
 
 " Do not let cursor scroll below or above N number of lines when scrolling.
-set scrolloff=10
+" set scrolloff=10
 
 " Set Mouse support
 set mouse=a
@@ -70,3 +71,10 @@ set hlsearch
 
 " Set the commands to save in history default number is 20.
 set history=1000
+
+" Mappings 
+noremap <C-s> :w<CR>
+noremap <C-x> :q<CR>
+
+" Colorscheme
+" colorscheme slate

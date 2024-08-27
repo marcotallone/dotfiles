@@ -135,8 +135,40 @@ return {
 		lspconfig["ltex"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "txt", "tex" }, -- Specify the file types for textlsp
 		})
 
+		lspconfig["textlsp"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "txt", "tex" }, -- Specify the file types for textlsp
+		})
+
+		lspconfig["emmet_ls"].setup({
+			capabilities = capabilities,
+			filetypes = {
+				"html",
+				"typescriptreact",
+				"javascriptreact",
+				"css",
+				"sass",
+				"scss",
+				"less",
+				"svelte",
+			},
+		})
+
+		lspconfig["html"].setup({
+			capabilities = capabilities,
+			filetypes = {
+				"html",
+				"css",
+				"sass",
+				"scss",
+				"less",
+				"svelte",
+			},
+		})
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
 			capabilities = capabilities,

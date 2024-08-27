@@ -49,6 +49,8 @@ return {
 				"marksman",
 				"texlab",
 				"ltex",
+				"textlsp",
+				"emmet_ls",
 			},
 			-- auto-install configured servers (with lspconfig)
 			-- Not the same as ensure_installed
