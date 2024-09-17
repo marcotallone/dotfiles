@@ -3,6 +3,7 @@
 # General aliases
 alias c='clear'
 alias v='vim'
+alias monitor='tail -n +1 -f'
 
 # Color support aliases
 if [ -x /usr/bin/dircolors ]; then
