@@ -1,10 +1,13 @@
-// Configuration for waybar
+//┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+//┃                             WAYBAR CONFIG                                ┃
+//┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 {
 	
     // General Settings -------------------------------------------------------
     "layer": "top",
-    "margin-top": 14,
+    "height": 30,
+    "margin-top": 0,
     "margin-bottom": 0,
     "layer": "top",
     "margin-left": 0,
@@ -19,45 +22,39 @@
 
     // Modules Left -----------------------------------------------------------
     "modules-left": [
-        "custom/appmenuicon",
-        "group/links",
-        // "group/settings2",
-        //"wlr/taskbar",
-        "group/quicklinks",
-        "hyprland/workspaces"
-        // "hyprland/window"
-        // "custom/empty"
+        "custom/archlogo",
+        "hyprland/workspaces",
+				"custom/chatgpt",
+				"custom/firefox",
+				"custom/youtube",
+				"custom/gmail",
+				"custom/outlook",
+				"custom/teams",
+				"custom/spotify",
+				"custom/github"
     ],
 
     // Modules Center ---------------------------------------------------------
     "modules-center": [
-        // "hyprland/workspaces"
         "clock"
     ],
 
     // Modules Right ----------------------------------------------------------
     "modules-right": [
-        "disk",
         "cpu",
         "memory",
+        "disk",
         "temperature",
-        "custom/empty2",
-        "custom/updates",
-        "pulseaudio",
-        "bluetooth",
-        "battery", 
-        "network",
-        // "group/hardware",
-        // "group/tools",
-        "tray",
+				"custom/updates",
+				"custom/calculator",
 				"custom/emoji",
         "custom/cliphist",
         "custom/hyprshade",
-        "group/settings2",
-        "group/settings",
+				"bluetooth",
+        "pulseaudio",
+        "network",
+        "battery",
         "custom/exit"
-        // "custom/ml4w-welcome",
-        // "clock"
     ]
 
 }
