@@ -16,7 +16,6 @@
 
     // Load Modules -----------------------------------------------------------
     "include": [
-        "~/dotfiles/waybar-new/quicklinks.json",
         "~/dotfiles/waybar-new/modules.json"
     ],
 

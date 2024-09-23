@@ -48,7 +48,7 @@
 				"updated": "	"
 			},
 			"exec-if": "which waybar-module-pacman-updates",
-			"exec": "waybar-module-pacman-updates --no-zero-output --interval-seconds 300 --network-interval-seconds 300",
+			"exec": "waybar-module-pacman-updates --no-zero-output --interval-seconds 120 --network-interval-seconds 300",
 			"on-click": "alacritty --class dotfiles-floating -e ~/dotfiles/scripts/installupdates.sh",
 			"on-click-right": "~/dotfiles/.settings/software.sh"
 		},
@@ -152,13 +152,13 @@
     // Network / Wi-fi
     "network": {
         "format": "{ifname}",
-        "format-wifi": "   {signalStrength}%",
-        "format-ethernet": "  {ifname}",
-        "format-disconnected": "󰖪  Disconnected",
+        "format-wifi": "{signalStrength}%  ",
+        "format-ethernet": "{ifname}  ",
+        "format-disconnected": "󰖪",
         "tooltip-format": " {ifname} via {gwaddri}",
         "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
         "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
-        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-disconnected": "󰖪  Disconnected",
         "max-length": 50,
         "on-click": "alacritty --class dotfiles-floating -e nmtui",
         "on-click-right": "~/dotfiles/.settings/networkmanager.sh"
@@ -172,7 +172,7 @@
             "critical": 10
         },
 				"interval": 10,
-        "format": "{icon} {capacity}%",
+        "format": "{capacity}% {icon}",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": "{icon} {time}",
@@ -198,7 +198,7 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "max-volume": 100,
-        "format": "{icon} {volume}%",
+        "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "󰖁 {icon} {format_source}",
         "format-muted": "",
@@ -222,7 +222,7 @@
 
     // Bluetooth
     "bluetooth": {
-        "format": " {status}",
+        "format": "{status} ",
         "format-disabled": "󰂲",
         "format-off": "󰂲",
         "interval": 30,
