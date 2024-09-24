@@ -135,14 +135,23 @@ return {
 		lspconfig["ltex"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "txt", "tex" }, -- Specify the file types for textlsp
+			filetypes = { "txt", "tex" },
 		})
 
 		lspconfig["textlsp"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "txt", "tex" }, -- Specify the file types for textlsp
+			-- filetypes = { "txt", "tex" }, -- Specify the file types for textlsp
 		})
+
+		-- Start and stop textlsp on command (sometimes it's annyoing that's why...)
+		keymap.set(
+			"n",
+			"<leader>kl",
+			":LspStart textlsp<CR>",
+			{ noremap = true, silent = true, desc = "Start Text LSP" }
+		)
+		keymap.set("n", "<leader>kk", ":LspStop textlsp<CR>", { noremap = true, silent = true, desc = "Stop Text LSP" })
 
 		lspconfig["emmet_ls"].setup({
 			capabilities = capabilities,

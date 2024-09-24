@@ -54,3 +54,10 @@ save_to_clipboard = true
 
 [env]
 	term = "xterm-256color"
+
+# Cursor settings
+# [cursor]
+# blink_interval = 750
+# [cursor.style]
+# shape = "Beam"
+# blinking = "Always"

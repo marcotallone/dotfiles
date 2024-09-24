@@ -50,7 +50,8 @@
 			"exec-if": "which waybar-module-pacman-updates",
 			"exec": "waybar-module-pacman-updates --no-zero-output --interval-seconds 120 --network-interval-seconds 300",
 			"on-click": "alacritty --class dotfiles-floating -e ~/dotfiles/scripts/installupdates.sh",
-			"on-click-right": "~/dotfiles/.settings/software.sh"
+			// "on-click-right": "~/dotfiles/.settings/software.sh"
+			"on-click-right": "waybar-module-pacman-updates --no-zero-output"
 		},
 
     // Calculator
