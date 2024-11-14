@@ -138,11 +138,11 @@ return {
 			filetypes = { "txt", "tex" },
 		})
 
-		lspconfig["textlsp"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			-- filetypes = { "txt", "tex" }, -- Specify the file types for textlsp
-		})
+		-- lspconfig["textlsp"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	-- filetypes = { "txt", "tex" }, -- Specify the file types for textlsp
+		-- })
 
 		-- Start and stop textlsp on command (sometimes it's annyoing that's why...)
 		keymap.set(

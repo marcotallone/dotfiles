@@ -49,7 +49,7 @@ return {
 				"marksman",
 				"texlab",
 				"ltex",
-				"textlsp",
+				-- "textlsp",
 				"emmet_ls",
 			},
 			-- auto-install configured servers (with lspconfig)
