@@ -43,13 +43,13 @@ return {
 				"clangd",
 				"cmake",
 				"pyright",
-				"dockerls",
-				"fortls",
-				-- "autotools_ls",
+				-- "dockerls",
+				-- "fortls",
+				"autotools_ls",
 				"marksman",
 				"texlab",
 				"ltex",
-				-- "textlsp",
+				"textlsp", -- Grammar Checker
 				"emmet_ls",
 			},
 			-- auto-install configured servers (with lspconfig)
@@ -62,14 +62,14 @@ return {
 			ensure_installed = {
 				-- "prettier", -- prettier formatter
 				"stylua", -- lua formatter
-				"isort", -- python formatter
-				"black", -- python formatter
-				"clang-format", -- c/c++ formatter
+				-- "isort", -- python formatter
+				-- "black", -- python formatter
+				-- "clang-format", -- c/c++ formatter
 				-- "latexindent", -- latex formatter (not always useful)
 				-- "pylint", -- python linter (use global one instead)
 				-- "vale", -- text linter (not useful)
-				"cpplint", -- c/c++ linter
-				"markdownlint", -- markdown linter
+				-- "cpplint", -- c/c++ linter
+				-- "markdownlint", -- markdown linter
 			},
 		})
 	end,
