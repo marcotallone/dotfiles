@@ -1,5 +1,9 @@
 #!/bin/bash
 
 # Emoji picker script
-# by Marco Tallone (2024)
-rofi -modi emoji -show emoji -replace -config ~/dotfiles/rofi/config-emoji.rasi
+
+# Emoji configuration file
+EMOJI_CONFIG=~/dotfiles/rofi/.config/rofi/config-emoji.rasi
+
+# Call rofi with emoji options
+rofi -modi emoji -show emoji -replace -config $EMOJI_CONFIG

@@ -1,4 +1,6 @@
 #!/bin/bash
+
+
 #   ____ _ _       _     _     _    
 #  / ___| (_)_ __ | |__ (_)___| |_  
 # | |   | | | '_ \| '_ \| / __| __| 
@@ -9,15 +11,33 @@
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
 
+# case $1 in
+#     d) cliphist list | rofi -dmenu -replace -config ~/dotfiles/rofi/config-cliphist.rasi | cliphist delete
+#        ;;
+
+#     w) if [ `echo -e "Clear\nCancel" | rofi -dmenu -config ~/dotfiles/rofi/config-short.rasi` == "Clear" ] ; then
+#             cliphist wipe
+#        fi
+#        ;;
+
+#     *) cliphist list | rofi -dmenu -replace -config ~/dotfiles/rofi/config-cliphist.rasi | cliphist decode | wl-copy
+#        ;;
+# esac
+
+# Cliphist configuration file
+CLIPHIST_CONFIG=~/dotfiles/rofi/.config/rofi/config-cliphist.rasi
+
+# Call rofi with cliphist options
 case $1 in
-    d) cliphist list | rofi -dmenu -replace -config ~/dotfiles/rofi/config-cliphist.rasi | cliphist delete
-       ;;
+		d) cliphist list | rofi -dmenu -replace -config $CLIPHIST_CONFIG | cliphist delete
+			 ;;
 
-    w) if [ `echo -e "Clear\nCancel" | rofi -dmenu -config ~/dotfiles/rofi/config-short.rasi` == "Clear" ] ; then
-            cliphist wipe
-       fi
-       ;;
+		w) if [ `echo -e "Clear\nCancel" | rofi -dmenu -config ~/dotfiles/rofi/config-short.rasi` == "Clear" ] ; then
+						cliphist wipe
+			 fi
+			 ;;
 
-    *) cliphist list | rofi -dmenu -replace -config ~/dotfiles/rofi/config-cliphist.rasi | cliphist decode | wl-copy
-       ;;
+		*) cliphist list | rofi -dmenu -replace -config $CLIPHIST_CONFIG | cliphist decode | wl-copy
+			 ;;
 esac
+

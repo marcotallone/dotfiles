@@ -1,0 +1,16 @@
+/**
+ *
+ * Author : Marco Tallone
+ * Github : @marcotallone
+ *
+ * Colors
+ **/
+
+* {
+    background:     #1a1b26FF;
+    background-alt: #414868FF;
+    foreground:     #C0CAF5FF;
+    selected:       #2ac3deFF;
+    active:         #414868FF;
+    urgent:         #F7768EFF;
+}
