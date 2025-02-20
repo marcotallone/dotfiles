@@ -1,0 +1,5 @@
+These were my old dotfiles from my first experience with archlinux in the far summer of 2024.
+
+I've (hopefully) improved a lot since then...
+
+Marco
