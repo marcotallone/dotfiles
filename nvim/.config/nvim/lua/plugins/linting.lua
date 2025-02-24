@@ -19,8 +19,8 @@ return {
 			tex = { "chktex" },
 			markdown = { "markdownlint" },
 			-- text = { "vale" },
-			c = { "cpplint" },
-			cpp = { "cpplint" },
+			-- c = { "cpplint" },
+			-- cpp = { "cpplint" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
