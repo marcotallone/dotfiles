@@ -21,10 +21,10 @@ return {
 				-- yaml = { "prettier" },
 				markdown = { "markdownlint" },
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				-- python = { "isort", "black" },
 				-- latex = { "latexindent" },
-				c = { "clang-format" },
-				cpp = { "clang-format" },
+				-- c = { "clang-format" },
+				-- cpp = { "clang-format" },
 			},
 			format_on_save = {
 				lsp_fallback = false,
