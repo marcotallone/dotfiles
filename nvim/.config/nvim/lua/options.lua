@@ -16,10 +16,12 @@ vim.cmd("set shiftwidth=2")
 -- vim.cmd("set backspace=indent,eol,start")
 
 -- Disable auto-commenting new lines
--- vim.cmd("set formatoptions-=cro")
--- vim.cmd("set formatoptions=jql")
--- vim.opt.formatoptions:remove("cro")
--- vim.cmd([[ autocmd BufRead,BufNewFile * setlocal formatoptions-=cro ]])
+-- (WARNING: These have to be placed ini an autocommand to avoid being
+-- overwritten - see:
+-- https://www.reddit.com/r/neovim/comments/191l9bb/how_do_i_integrate_set_formatoptionscro_in_lazyvim/)
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	command = "set formatoptions-=cro",
+})
 
 -- Active mouse
 vim.cmd("set mouse=a")
