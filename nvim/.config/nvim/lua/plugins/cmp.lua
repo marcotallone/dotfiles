@@ -5,14 +5,14 @@
 
 return {
 	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",						-- only load when in insert mode
+	event = "InsertEnter", -- only load when in insert mode
 	dependencies = {
-		"hrsh7th/cmp-buffer",						-- source for text in buffer
-		"hrsh7th/cmp-path",							-- source for file system paths
-		"L3MON4D3/LuaSnip",							-- snippet engine
-		"saadparwaiz1/cmp_luasnip",			-- for autocompletion
-		"rafamadriz/friendly-snippets",	-- useful snippets
-		"onsails/lspkind.nvim",					-- vs-code like pictograms
+		"hrsh7th/cmp-buffer", -- source for text in buffer
+		"hrsh7th/cmp-path", -- source for file system paths
+		"L3MON4D3/LuaSnip", -- snippet engine
+		"saadparwaiz1/cmp_luasnip", -- for autocompletion
+		"rafamadriz/friendly-snippets", -- useful snippets
+		"onsails/lspkind.nvim", -- vs-code like pictograms
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -29,7 +29,7 @@ return {
 				completeopt = "menu,menuone,preview,noselect",
 			},
 
-		 -- Configure how nvim-cmp interacts with snippet engine
+			-- Configure how nvim-cmp interacts with snippet engine
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
@@ -49,10 +49,10 @@ return {
 
 			-- Sources for autocompletion (in priority order)
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },	-- language server protocol (LSP)
-				{ name = "luasnip" },		-- snippets
-				{ name = "buffer" },		-- text within current buffer
-				{ name = "path" },			-- file system paths
+				{ name = "nvim_lsp" }, -- language server protocol (LSP)
+				{ name = "luasnip" }, -- snippets
+				{ name = "buffer" }, -- text within current buffer
+				{ name = "path" }, -- file system paths
 			}),
 
 			-- Configure lspkind for vs-code like pictograms in completion menu
@@ -62,7 +62,6 @@ return {
 					ellipsis_char = "...",
 				}),
 			},
-
 		})
 	end,
 }
