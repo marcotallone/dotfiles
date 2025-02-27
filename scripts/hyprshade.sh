@@ -28,21 +28,21 @@ else
     # Toggle Hyprshade
     if [ "$hyprshade_filter" != "off" ] ;then
         if [ -z $(hyprshade current) ] ;then
-            echo ":: hyprshade is not running"
+            # echo ":: hyprshade is not running"
             hyprshade on $hyprshade_filter
-            notify-send "Hyprshade activated" "with $(hyprshade current)"
-            echo ":: hyprshade started with $(hyprshade current)"
+            # notify-send "Hyprshade activated" "with $(hyprshade current)"
+            # echo ":: hyprshade started with $(hyprshade current)"
         else
-            notify-send "Hyprshade deactivated"
-            echo ":: Current hyprshade $(hyprshade current)"
-            echo ":: Switching hyprshade off"
+            # notify-send "Hyprshade deactivated"
+            # echo ":: Current hyprshade $(hyprshade current)"
+            # echo ":: Switching hyprshade off"
             hyprshade off
         fi
     else
         if [ -z $(hyprshade current) ] ;then
             hyprshade off
         fi
-        echo ":: hyprshade turned off"
+        # echo ":: hyprshade turned off"
     fi
 
 fi
