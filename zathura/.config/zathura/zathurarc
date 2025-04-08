@@ -1,0 +1,13 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ #
+# ┃                           ZATHURARC FILE                                ┃ #
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛ #
+# ZATHURA CONFIGURATION FILE
+# Marco Tallone
+# 27/02/2025
+
+# INFO: Dotfiles:					https://github.com/marcotallone/dotfiles
+# INFO: Zathura:					http://jhshi.me/2016/03/09/zathura-pdf-viewer-for-vim-lovers/index.html
+
+
+# copy selection to system clipboard
+set selection-clipboard clipboard

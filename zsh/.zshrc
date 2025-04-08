@@ -233,20 +233,25 @@ open(){
 # Cargo path for Rust
 export PATH=$PATH:/home/marco/.cargo/bin
 
+# Gurobi
+export GUROBI_HOME="/opt/gurobi1201/linux64"
+export PATH="${PATH}:${GUROBI_HOME}/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+
 # ┌─────────────────────────────────────────────────────────────────────────┐	#
 # │																	 Conda	  															│ #
 # └─────────────────────────────────────────────────────────────────────────┘ #
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/marco/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/marco/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/marco/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/marco/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/marco/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/marco/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/marco/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/marco/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
