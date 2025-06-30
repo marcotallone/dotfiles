@@ -59,3 +59,6 @@ vim.cmd("set background=dark")
 -- Window splitting
 vim.cmd("set splitright")
 vim.cmd("set splitbelow")
+
+-- Options for auto-session
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
