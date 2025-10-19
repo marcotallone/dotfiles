@@ -176,9 +176,14 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-syntax-highlighting
-  zsh-autosuggestions
+#   For Arch Linux systems
+#   zsh-syntax-highlighting
+#   zsh-autosuggestions
 )
+
+# For Fedora42, if installed with dnf
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $ZSH/oh-my-zsh.sh
 
