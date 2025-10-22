@@ -67,7 +67,7 @@ set history=1000
 
 " Mappings
 noremap <C-s> :w<CR>
-noremap <C-x> :q<CR>
+noremap <C-q> :q<CR>
 
 " Colorscheme
 " colorscheme slate

@@ -12,7 +12,7 @@ local keymap = vim.keymap
 keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save" })
 
 -- Exit
-keymap.set("n", "<C-x>", ":qa<CR>", { desc = "Exit" })
+keymap.set("n", "<C-q>", ":qa<CR>", { desc = "Exit" })
 
 -- Copy to clipboard
 -- vim.api.nvim_set_keymap("v", "<C-c>",
