@@ -6,6 +6,7 @@ alias v='vim'
 alias monitor='tail -n +1 -f'
 alias mon='tail -n +1 -f'
 # also useful: watch -n 1 | cat FILE
+alias commands='cat $HOME/commands.txt'
 
 # Color support aliases
 if [ -x /usr/bin/dircolors ]; then
