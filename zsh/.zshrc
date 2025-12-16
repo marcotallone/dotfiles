@@ -244,6 +244,10 @@ export GUROBI_HOME="/opt/gurobi1201/linux64"
 export PATH="${PATH}:${GUROBI_HOME}/bin"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
 
+# Pip
+export PATH="$HOME/.local/bin:$PATH"
+alias pip="pip3"
+
 # ┌─────────────────────────────────────────────────────────────────────────┐	#
 # │																	 Conda	  															│ #
 # └─────────────────────────────────────────────────────────────────────────┘ #
