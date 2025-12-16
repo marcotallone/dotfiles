@@ -8,83 +8,6 @@
 # INFO: Dotfiles:					https://github.com/marcotallone/dotfiles
 
 # ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │																	Aliases 																│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Source the aliases file
-# (in case you want to store them in a separate file)
-# if [ -f ~/.zsh_aliases ]; then
-# 		source ~/.zsh_aliases
-# fi
-
-# General
-alias c='clear'
-alias nf='fastfetch'
-alias pf='fastfetch'
-alias ff='fastfetch'
-alias shutdown='systemctl poweroff'
-alias wifi='nmtui'
-
-# Editor
-alias n='$EDITOR'
-alias v='vim'
-# alias vim='$EDITOR'
-
-# Dotfiles
-# alias ts='~/dotfiles/scripts/snapshot.sh'
-alias dot="cd ~/dotfiles && nvim ."
-alias zrc="nvim ~/.zshrc"
-alias zalias="nvim ~/.zsh_aliases"
-# alias cleanup='~/dotfiles/scripts/cleanup.sh'
-
-# Aliases for ls (eza)
-alias ls='eza -a --icons'
-alias ll='eza -al --icons'
-alias lt='eza -a --tree --level=1 --icons'
-alias tree="eza --tree"
-
-# Git
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit"
-alias gp="git push"
-alias gpl="git pull"
-alias gst="git stash"
-alias gsp="git stash; git pull"
-alias gcheck="git checkout"
-alias gcredential="git config credential.helper store"
-
-# Aliases for cat (batcat)
-# if command -v bat > /dev/null; then
-# 	alias cat="bat"
-# elif command -v batcat > /dev/null; then
-# 	alias cat="batcat"
-# fi
-
-# Kubernetes
-alias k="kubectl"
-alias kpod="kubectl get pods"
-alias ksvc="kubectl get svc"
-alias kd="kubectl describe"
-
-# Tmux
-alias t="tmux"
-alias ta="tmux attach"
-alias tls="tmux ls"
-alias ts="tmux new-session"
-
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
 # │																PowerLevel10k															│ #
 # └─────────────────────────────────────────────────────────────────────────┘ #
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -265,3 +188,81 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# ┌─────────────────────────────────────────────────────────────────────────┐	#
+# │																	Aliases 																│ #
+# └─────────────────────────────────────────────────────────────────────────┘ #
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Source the aliases file
+# (in case you want to store them in a separate file)
+# if [ -f ~/.zsh_aliases ]; then
+# 		source ~/.zsh_aliases
+# fi
+
+# General
+alias c='clear'
+alias nf='fastfetch'
+alias pf='fastfetch'
+alias ff='fastfetch'
+alias shutdown='systemctl poweroff'
+alias wifi='nmtui'
+
+# Editor
+alias n='$EDITOR'
+alias v='vim'
+# alias vim='$EDITOR'
+
+# Dotfiles
+# alias ts='~/dotfiles/scripts/snapshot.sh'
+alias dot="cd ~/dotfiles && nvim ."
+alias zrc="nvim ~/.zshrc"
+alias zalias="nvim ~/.zsh_aliases"
+# alias cleanup='~/dotfiles/scripts/cleanup.sh'
+
+# Aliases for ls (eza)
+alias ls='eza -a --icons'
+alias ll='eza -al --icons'
+alias lt='eza -a --tree --level=1 --icons'
+alias tree="eza --tree"
+
+# Git
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="git push"
+alias gpl="git pull"
+alias gst="git stash"
+alias gsp="git stash; git pull"
+alias gcheck="git checkout"
+alias gcredential="git config credential.helper store"
+
+# Aliases for cat (batcat)
+# if command -v bat > /dev/null; then
+# 	alias cat="bat"
+# elif command -v batcat > /dev/null; then
+# 	alias cat="batcat"
+# fi
+
+# Kubernetes
+alias k="kubectl"
+alias kpod="kubectl get pods"
+alias ksvc="kubectl get svc"
+alias kd="kubectl describe"
+
+# Tmux
+alias t="tmux"
+alias ta="tmux attach"
+alias tls="tmux ls"
+alias ts="tmux new-session"
+

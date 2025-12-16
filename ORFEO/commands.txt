@@ -1,0 +1,34 @@
+
+-----------------------------
+LIST OF USEFUL ORFEO COMMANDS
+-----------------------------
+
+* SEE ACCOUNT LIMITATIONS AND NODES:
+sacctmgr show user $USER withassoc format=User,Account,Partition,MaxJobs,MaxSubmitJobs,MaxTRES,MaxWall
+
+* INTERACTIVE SESSION:
+srun --partition GPU -A dssc --nodes 1 --tasks 1 --cpus-per-task=12 --gpus=1 --time=1:00:00 --pty bash
+
+* EVAL CONDA ENVIRONMENT:
+eval "$(/u/dssc/mtallone/scratch/miniconda3/bin/conda shell.bash hook)"
+
+* LOAD CUDA:
+module load cuda/12.8
+
+* LIST SIZE OF FOLDERS AND SUBFOLDERS FROM CURRENT DIR (ALSO HIDDEN):
+du -sh -- * .[^.]* | sort -hr
+
+* UNTAR A FOLDER FROM DIRECTORY TO ANOTHER:
+tar -xvjf SOURCE/TARFILE.tar.bz2 -C DESTINATION/
+
+* MOVE FILES [RUN ALL FROM LOCAL MACHINE]:
+
+	- from {ORFEO} --> to {LOCAL}:
+	rsync -avz --progress tallone.gvt@195.14.102.215:/u/gvt/tallone.gvt/SOURCE DESTINATION
+	scp tallone.gvt@195.14.102.215:/u/gvt/tallone.gvt/SOURCE DESTINATION
+
+	- from {LOCAL} --> to {ORFEO}:
+	rsync -avz --progress SOURCE tallone.gvt@195.14.102.215:/u/gvt/tallone.gvt/DESTINATION
+	scp SOURCE tallone.gvt@195.14.102.215:/u/gvt/tallone.gvt/DESTINATION
+
+

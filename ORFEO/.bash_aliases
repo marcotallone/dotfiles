@@ -4,6 +4,8 @@
 alias c='clear'
 alias v='vim'
 alias monitor='tail -n +1 -f'
+alias mon='tail -n +1 -f'
+# also useful: watch -n 1 | cat FILE
 
 # Color support aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -24,6 +26,8 @@ alias sinfo="sinfo -lN"
 alias mysq="squeue | grep $(whoami)"
 alias myjobs="sacct -u $(whoami) -o jobid,jobname,partition,account,alloccpus,state,exitcode,elapsed" # see `sacct --helpformat` for entries
 alias sq='squeue | grep --color=always "mtallone\|$"'
+alias sqgpu="squeue | grep GPU"
+alias sqdgx="squeue | grep DGX"
 
 # Git aliases
 alias gs="git status"

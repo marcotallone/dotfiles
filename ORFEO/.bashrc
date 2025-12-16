@@ -1,3 +1,9 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
         . /etc/bashrc
@@ -16,6 +22,13 @@ echo ""
 if [ -f ~/.bash_aliases ]; then
                 source ~/.bash_aliases
 fi
+
+# Update PATH with my bin folder
+# (OLD) export PATH="$PATH:/u/dssc/mtallone/.local/bin/"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Zoxide
+eval "$(zoxide init bash)"
 
 # Set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
