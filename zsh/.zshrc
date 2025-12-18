@@ -232,9 +232,10 @@ alias zalias="nvim ~/.zsh_aliases"
 
 # Aliases for ls (eza)
 alias ls='eza -a --icons'
-alias ll='eza -al --icons'
+alias ll='eza -alrt created --icons'
 alias lt='eza -a --tree --level=1 --icons'
-alias tree="eza --tree"
+alias tree='eza -a --tree --icons'
+# alias tree="eza --tree"
 
 # Git
 alias gs="git status"
