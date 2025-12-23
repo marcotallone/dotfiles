@@ -7,6 +7,7 @@ alias monitor='tail -n +1 -f'
 alias mon='tail -n +1 -f'
 # also useful: watch -n 1 cat FILE
 alias commands='cat $HOME/commands.txt'
+alias ff='fastfetch'
 
 # Color support aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -22,7 +23,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# SLURM aliasesi:
+# SLURM aliases:
 
 # Squeue commands
 alias sq='squeue -o "%.10i %.9P %.20j %.12u %.10T %.10M %.10L %.6D %R" | grep --color=always "tallone.gvt\|$"'
@@ -33,7 +34,7 @@ alias sqgpu='squeue -o "%.10i %.9P %.20j %.12u %.10T %.10M %.10L %.6D %R" -p GPU
 alias sqthin='squeue -o "%.10i %.9P %.20j %.12u %.10T %.10M %.10L %.6D %R" -p THIN'
 
 # CLuster info commands
-alias sinfo="sinfo -lN"
+alias si="sinfo -lN -p DGX,EPYC,GPU,THIN"
 alias sidgx='sinfo -lN -p DGX'
 alias siepyc='sinfo -lN -p EPYC'
 alias sigpu='sinfo -lN -p GPU'

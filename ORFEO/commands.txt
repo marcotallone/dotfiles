@@ -6,14 +6,27 @@ LIST OF USEFUL ORFEO COMMANDS
 * SEE ACCOUNT LIMITATIONS AND NODES:
 sacctmgr show user $USER withassoc format=User,Account,Partition,MaxJobs,MaxSubmitJobs,MaxTRES,MaxWall
 
+* SQUEUE ALL JOBS WITH LONG FORMAT NAMES
+squeue -o "%.10i %.10P %.30j %.10u %.10t %.10M %.10D %R"
+squeue -o "%.10i %.10P %.25j %.12u %.12a %.10t %.10M %R"
+
 * INTERACTIVE SESSION:
-srun --partition GPU -A dssc --nodes 1 --tasks 1 --cpus-per-task=12 --gpus=1 --time=1:00:00 --pty bash
+srun --partition GPU -A gvt --nodes 1 --tasks 1 --cpus-per-task=12 --gres=gpu:V100:1 --time=1:00:00 --pty bash
+srun --partition DGX -A gvt --nodes 1 --tasks 1 --cpus-per-task=12 --gres=gpu:A100:1 --time=1:00:00 --pty bash
+srun --partition THIN -A gvt --nodes 1 --tasks 1 --cpus-per-task=12 --time=1:00:00 --pty bash
 
 * EVAL CONDA ENVIRONMENT:
-eval "$(/u/dssc/mtallone/scratch/miniconda3/bin/conda shell.bash hook)"
+eval "$(/u/gvt/tallone.gvt/scratch/miniconda3/bin/conda shell.bash hook)"
 
 * LOAD CUDA:
 module load cuda/12.8
+
+* MODULES SELECTION/LOADING/AVAILABILITY/CLEANING
+module spider
+module avail
+module list
+module load MODULE
+module purge MODULE
 
 * LIST SIZE OF FOLDERS AND SUBFOLDERS FROM CURRENT DIR (ALSO HIDDEN):
 du -sh -- * .[^.]* | sort -hr
