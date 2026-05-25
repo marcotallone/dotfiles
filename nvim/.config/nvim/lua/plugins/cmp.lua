@@ -1,7 +1,5 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                                 Nvim Cmp	  														│--
---└─────────────────────────────────────────────────────────────────────────┘--
--- Autocompletion plugin for neovim                                          --
+-- Nvim CMP
+-- Autocompletion plugin for neovim
 
 return {
 	"hrsh7th/nvim-cmp",

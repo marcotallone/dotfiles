@@ -1,25 +1,5 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                                 Neotree	  															│--
---└─────────────────────────────────────────────────────────────────────────┘--
-
--- return {
--- 	"nvim-neo-tree/neo-tree.nvim",
--- 	branch = "v3.x",
--- 	dependencies = {
--- 		"nvim-lua/plenary.nvim",
--- 		"nvim-tree/nvim-web-devicons",
--- 		"MunifTanjim/nui.nvim",
--- 	},
--- 	config = function()
--- 		vim.keymap.set('n', '<C-b>', ':Neotree toggle<CR>', {})
--- 		-- vim.keymap.set('n', '<leader>xx', ':Neotree close<CR>', {})
--- 		vim.keymap.set('n', '<leader>bf', ':Neotree buffers reveal float<CR>', {})
--- 	end
--- }
-
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                                 Nvimtree  															│--
---└─────────────────────────────────────────────────────────────────────────┘--
+-- Nvim Tree
+-- File explorer tree for Neovim
 
 return {
 	"nvim-tree/nvim-tree.lua",
@@ -33,8 +13,8 @@ return {
 
 		nvimtree.setup({
 			view = {
-				width = 40,
-				relativenumber = true,
+				width = 30, -- side bar width
+				relativenumber = true, -- show relative line numbers
 			},
 			sort = {
 				sorter = "extension",
@@ -44,18 +24,8 @@ return {
 				indent_markers = {
 					enable = true,
 				},
-				-- icons = {
-				-- 	glyphs = {
-				-- 		folder = {
-				-- 			arrow_closed = "", -- arrow when folder is closed
-				-- 			arrow_open = "", -- arrow when folder is open
-				-- 		},
-				-- 	},
-				-- },
 			},
-			-- disable window_picker for
-			-- explorer to work well with
-			-- window splits
+			-- disable window_picker for explorer to work with window splits
 			actions = {
 				open_file = {
 					window_picker = {
@@ -64,11 +34,11 @@ return {
 				},
 			},
 			filters = {
-				dotfiles = false,
-				custom = { ".DS_Store" },
+				dotfiles = false, -- show dotfiles
+				custom = { ".DS_Store" }, -- ignore .DS_Store files
 			},
 			git = {
-				ignore = false,
+				ignore = false, -- show files ignored by gitignore
 			},
 		})
 
@@ -86,3 +56,4 @@ return {
 		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 	end,
 }
+

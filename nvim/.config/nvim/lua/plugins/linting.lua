@@ -1,6 +1,5 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                                Linting   			  												│--
---└─────────────────────────────────────────────────────────────────────────┘--
+-- Linting
+-- Code linting using 'nvim-lint'
 
 return {
 	"mfussenegger/nvim-lint",
@@ -8,6 +7,8 @@ return {
 	config = function()
 		local lint = require("lint")
 
+        -- NOTE: You might not always want to enable linters.
+        --       Enable only the ones you want by uncommenting them.
 		lint.linters_by_ft = {
 			-- javascript = { "eslint_d" },
 			-- typescript = { "eslint_d" },

@@ -1,7 +1,5 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                                 Mason	    															│--
---└─────────────────────────────────────────────────────────────────────────┘--
--- Mason is a package manager for Neovim plugins and LSP servers.
+-- Mason
+-- A package manager for Neovim plugins and LSP servers.
 -- What does it do? It installs and manages plugins and LSP servers for you.
 -- Note that Mason does not manage communication between the LSP and Neovim, it
 -- only installs the LSP servers. The communication part is handled by lspconfig.

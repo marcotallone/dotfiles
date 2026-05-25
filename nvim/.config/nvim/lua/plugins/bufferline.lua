@@ -1,6 +1,5 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                               Bufferline  															│--
---└─────────────────────────────────────────────────────────────────────────┘--
+-- Bufferline
+-- Tab line showing open buffers as tabs on top
 
 return {
   "akinsho/bufferline.nvim",

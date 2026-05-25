@@ -1,6 +1,5 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                                Formatting  															│--
---└─────────────────────────────────────────────────────────────────────────┘--
+-- Formatting
+-- Code formatting using 'conform'
 
 return {
 	"stevearc/conform.nvim",
@@ -9,6 +8,9 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
+            -- NOTE: You might not always want to enable formatters
+            --       as they can change the code in ways you might not want.
+            --       Enable only the ones you want by uncommenting them.
 			formatters_by_ft = {
 				-- javascript = { "prettier" },
 				-- typescript = { "prettier" },
@@ -26,8 +28,8 @@ return {
 				-- c = { "clang-format" },
 				-- cpp = { "clang-format" },
 			},
-			format_on_save = {
-				lsp_fallback = false,
+			format_on_save = { -- enable format on save
+				lsp_fallback = true,
 				async = false,
 				timeout_ms = 1000,
 			},

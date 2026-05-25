@@ -1,15 +1,3 @@
-# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ #
-# ┃                               ZSHRC FILE                                ┃ #
-# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛ #
-# ZSHELL CONFIGURATION FILE
-# Marco Tallone
-# 12/02/2025
-
-# INFO: Dotfiles:					https://github.com/marcotallone/dotfiles
-
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │																PowerLevel10k															│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -17,14 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │																	Oh My Zsh																│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -35,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -98,100 +78,31 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-#   For Arch Linux systems
-#   zsh-syntax-highlighting
-#   zsh-autosuggestions
+	git
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+	web-search
 )
-
-# For Fedora42, if installed with dnf
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $ZSH/oh-my-zsh.sh
 
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │										User Preferences and Configuration										│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
+# User configuration
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
-
-# Enable fzf for zsh key bindings and fuzzy completion
-source <(fzf --zsh)
-# source "/usr/share/fzf/key-bindings.zsh"
-# source "/usr/share/fzf/completion.zsh"
-
-# Zoxide
-eval "$(zoxide init zsh)"
-
-# Open pdf function with zathura & disown
-open(){
-	zathura $1 & disown
-}
-
-# Vagrant Docker container for libvirt (function)
-# vagrant(){
-#   docker run -it --rm \
-# 		--privileged \
-# 		-e LIBVIRT_DEFAULT_URI="qemu:///system" \
-#     -v /var/run/libvirt/:/var/run/libvirt/ \
-#     -v ~/.vagrant.d:/.vagrant.d \
-#     -v $(realpath "${PWD}"):${PWD} \
-#     -w "${PWD}" \
-#     --network host \
-#     vagrantlibvirt/vagrant-libvirt:latest \
-#       vagrant $@
-# }
-# export KUBECONFIG=/home/marco/.kube/config.demo
-
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │															 Path Variables															│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
-
-# ???
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Cargo path for Rust
-export PATH=$PATH:/home/marco/.cargo/bin
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
 
-# Gurobi
-export GUROBI_HOME="/opt/gurobi1201/linux64"
-export PATH="${PATH}:${GUROBI_HOME}/bin"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+# Compilation flags
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Pip
-export PATH="$HOME/.local/bin:$PATH"
-alias pip="pip3"
-
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │																	 Conda	  															│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/marco/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/marco/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/marco/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/marco/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │																	Aliases 																│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
 # users are encouraged to define aliases within a top-level file in
@@ -204,66 +115,49 @@ unset __conda_setup
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Source the aliases file
-# (in case you want to store them in a separate file)
-# if [ -f ~/.zsh_aliases ]; then
-# 		source ~/.zsh_aliases
-# fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# General
-alias c='clear'
-alias nf='fastfetch'
-alias pf='fastfetch'
-alias ff='fastfetch'
-alias shutdown='systemctl poweroff'
-alias wifi='nmtui'
+# Zoxide
+eval "$(zoxide init zsh)"
 
-# Editor
-alias n='$EDITOR'
-alias v='vim'
-# alias vim='$EDITOR'
+# PyEnv
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
-# Dotfiles
-# alias ts='~/dotfiles/scripts/snapshot.sh'
-alias dot="cd ~/dotfiles && nvim ."
-alias zrc="nvim ~/.zshrc"
-alias zalias="nvim ~/.zsh_aliases"
-# alias cleanup='~/dotfiles/scripts/cleanup.sh'
+# Enable natural text editing
+#
+# Move to the beginning of the line. `Cmd + Left Arrow`:
+bindkey "^[[1;9D" beginning-of-line
+# Move to the end of the line. `Cmd + Right Arrow`:
+bindkey "^[[1;9C" end-of-line
+# Move to the beginning of the previous word. `Option + Left Arrow`:
+bindkey "^[[1;3D" backward-word
+# Move to the beginning of the next word. `Option + Right Arrow`:
+bindkey "^[[1;3C" forward-word
+# Delete the word behind the cursor. `Option + Delete`:
+bindkey "^[[3;10~" backward-kill-word
+# Delete the word after the cursor. `Option + fn + Delete`:
+bindkey "^[[3;3~" kill-word
+#
 
-# Aliases for ls (eza)
-alias ls='eza -a --icons=always'
-alias ll='eza -alrt created --icons=always'
-alias lt='eza -a --tree --level=1 --icons=always'
-alias tree='eza -a --tree --icons=always'
-# alias tree="eza --tree"
+# Aliases
+if [ -f ~/.zsh_aliases ]; then
+                source ~/.zsh_aliases
+fi
 
-# Git
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gp="git push"
-alias gpl="git pull"
-alias gst="git stash"
-alias gsp="git stash; git pull"
-alias gcheck="git checkout"
-alias gcredential="git config credential.helper store"
-
-# Aliases for cat (batcat)
-# if command -v bat > /dev/null; then
-# 	alias cat="bat"
-# elif command -v batcat > /dev/null; then
-# 	alias cat="batcat"
-# fi
-
-# Kubernetes
-alias k="kubectl"
-alias kpod="kubectl get pods"
-alias ksvc="kubectl get svc"
-alias kd="kubectl describe"
-
-# Tmux
-alias t="tmux"
-alias ta="tmux attach"
-alias tls="tmux ls"
-alias ts="tmux new-session"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/marco/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/marco/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/marco/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/marco/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

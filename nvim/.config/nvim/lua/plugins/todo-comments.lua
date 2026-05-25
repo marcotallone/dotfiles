@@ -1,6 +1,5 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                                TODO Comments 														│--
---└─────────────────────────────────────────────────────────────────────────┘--
+-- TODO Comments
+-- Highlight and navigate TODO comments in code
 
 return {
   "folke/todo-comments.nvim",

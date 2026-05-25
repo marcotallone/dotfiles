@@ -1,7 +1,5 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                                Comments																	│--
---└─────────────────────────────────────────────────────────────────────────┘--
--- Plugin to manage commenting text, paragraphs, scopes easily							 --
+-- Comments
+-- Plugin to manage commenting text, paragraphs, scopes easily
 
 return {
   "numToStr/Comment.nvim",

@@ -1,8 +1,5 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                             Alpha Dashboard 														│--
---└─────────────────────────────────────────────────────────────────────────┘--
--- Find new icons on:																												 --
---									https://www.nerdfonts.com/cheat-sheet								     --
+-- Alpha (dashboard)
+-- Nvim dashboard screen
 
 return {
 	"goolord/alpha-nvim",
@@ -10,16 +7,6 @@ return {
 	config = function()
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.dashboard")
-
-		-- Set header
-		-- dashboard.section.header.val = {
-		-- 	" ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
-		-- 	" ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
-		-- 	" ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
-		-- 	" ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
-		-- 	" ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
-		-- 	" ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
-		-- }
 
 		-- Set current working dir as header
 		local cwd = vim.fn.getcwd()
@@ -32,7 +19,6 @@ return {
 			-- new file:
 			dashboard.button("e", "  New File", ":enew<CR>"),
 			-- file explorer:
-			-- dashboard.button("b", "  File Explorer", ":Neotree toggle<CR>"),
 			dashboard.button("b", "  File Explorer", "<cmd>NvimTreeToggle<CR>"),
 			-- find file:
 			dashboard.button("f", "󰈞  Find File", ":Telescope find_files<CR>"),
@@ -43,7 +29,7 @@ return {
 			-- settings:
 			dashboard.button("s", "  Settings", ":e ~/.config/nvim/<CR>"),
 			-- restore session:
-			dashboard.button("r", "󰦛  Restore Session", ":SessionRestore<CR>"),
+			dashboard.button("r", "󰦛  Restore Session", ":AutoSession restore<CR>"),
 			-- quit:
 			dashboard.button("q", "  Quit", ":qa<CR>"),
 		}

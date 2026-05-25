@@ -1,7 +1,5 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                           Window Maximizer															│--
---└─────────────────────────────────────────────────────────────────────────┘--
--- To maximize window on splits (toggle with <leader>sm)										 --
+-- Vim Maximizer
+-- To maximize window on splits (toggle with <leader>sm)
 
 return {
   "szw/vim-maximizer",

@@ -1,7 +1,5 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                                Indent Line  														│--
---└─────────────────────────────────────────────────────────────────────────┘--
--- Indentation line to better see the scope of the code											 --
+-- Indent Blankline
+-- Indentation line to better see the scope of the code
 
 return {
 	"lukas-reineke/indent-blankline.nvim",
@@ -29,5 +27,4 @@ return {
 	-- 	}
 
 	-- end,
-
 }
