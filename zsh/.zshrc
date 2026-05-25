@@ -125,6 +125,9 @@ eval "$(zoxide init zsh)"
 eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # Enable natural text editing
 #
 # Move to the beginning of the line. `Cmd + Left Arrow`:
@@ -143,7 +146,7 @@ bindkey "^[[3;3~" kill-word
 
 # Aliases
 if [ -f ~/.zsh_aliases ]; then
-                source ~/.zsh_aliases
+    source ~/.zsh_aliases
 fi
 
 # >>> conda initialize >>>

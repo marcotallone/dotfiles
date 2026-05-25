@@ -6,4 +6,5 @@ stow vim
 stow tmux
 stow nvim
 stow alacritty
-stoz p10k
+stow p10k
+
