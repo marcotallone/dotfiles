@@ -231,10 +231,10 @@ alias zalias="nvim ~/.zsh_aliases"
 # alias cleanup='~/dotfiles/scripts/cleanup.sh'
 
 # Aliases for ls (eza)
-alias ls='eza -a --icons'
-alias ll='eza -alrt created --icons'
-alias lt='eza -a --tree --level=1 --icons'
-alias tree='eza -a --tree --icons'
+alias ls='eza -a --icons=always'
+alias ll='eza -alrt created --icons=always'
+alias lt='eza -a --tree --level=1 --icons=always'
+alias tree='eza -a --tree --icons=always'
 # alias tree="eza --tree"
 
 # Git
