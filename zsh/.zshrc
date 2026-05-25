@@ -163,13 +163,17 @@ open(){
 export PATH=$PATH:/home/marco/.cargo/bin
 
 # Gurobi
-export GUROBI_HOME="/opt/gurobi1201/linux64"
-export PATH="${PATH}:${GUROBI_HOME}/bin"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+#export GUROBI_HOME="/opt/gurobi1201/linux64"
+#export PATH="${PATH}:${GUROBI_HOME}/bin"
+#export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+
 
 # Pip
 export PATH="$HOME/.local/bin:$PATH"
 alias pip="pip3"
+
+# System-wise libraries pre-pend to library path
+export LD_LIBRARY_PATH=/usr/lib64${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 
 # ┌─────────────────────────────────────────────────────────────────────────┐	#
 # │																	 Conda	  															│ #
