@@ -1,6 +1,6 @@
--- ┌──────────────────────────────────────────────────────────────────────────┐
--- │ 󰀵 Lazy Nvim Init                                                         │
--- └──────────────────────────────────────────────────────────────────────────┘
+-- ┌────────────────────────────────────────────────────────────────────────┐ --
+-- │ 󰀵 Lazy Nvim Init                                                       │ --
+-- └────────────────────────────────────────────────────────────────────────┘ --
 
 -- This first snippet check if the lazy loader has its folder already set up.
 -- If not, it clones the proper repository to install the lazy loader folder.
@@ -21,16 +21,16 @@ vim.opt.rtp:prepend(lazypath)
 -- Here we require the necessary modules to set up the nvim configuration.
 require("core.options") -- general nvim options
 require("core.keymaps") -- general nvim keymaps
-require("lazy").setup(  -- lazy loader launcher
-	{ 
-        spec = {
-            { import = "plugins" },     -- plugins folder
-            { import = "plugins.lsp" }, -- lsp folder
-        },
-        checker = {
-            enabled = true,
-            notify = false,
-        },
+require("lazy").setup( -- lazy loader launcher
+	{
+		spec = {
+			{ import = "plugins" }, -- plugins folder
+			{ import = "plugins.lsp" }, -- lsp folder
+		},
+		checker = {
+			enabled = true,
+			notify = false,
+		},
 		change_detection = { -- disable changes notifications
 			notify = false,
 		},

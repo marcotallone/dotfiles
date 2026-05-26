@@ -1,6 +1,6 @@
--- ┌──────────────────────────────────────────────────────────────────────────┐
--- │ 󰀵 General Nvim Options                                                   │
--- └──────────────────────────────────────────────────────────────────────────┘
+-- ┌────────────────────────────────────────────────────────────────────────┐ --
+-- │ 󰀵 General Nvim Options                                                 │ --
+-- └────────────────────────────────────────────────────────────────────────┘ --
 -- For more information, see :help <option-name>
 
 -- Line numbers
@@ -18,7 +18,7 @@ vim.cmd("set autoindent") -- copy current line indent when starting a new line
 vim.cmd("set backspace=indent,eol,start") -- allow backspace on indent, end of line or start of insertion
 
 -- Disable auto-commenting new lines
--- WARNING: These have to be placed in a autocommand 
+-- WARNING: These have to be placed in a autocommand
 --          to avoid being overwritten. See:
 -- https://www.reddit.com/r/neovim/comments/191l9bb/how_do_i_integrate_set_formatoptionscro_in_lazyvim/)
 vim.api.nvim_create_autocmd("BufWinEnter", {
