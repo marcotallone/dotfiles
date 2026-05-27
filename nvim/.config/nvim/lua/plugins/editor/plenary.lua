@@ -3,7 +3,8 @@
 -- Pre-installed for faster first load
 
 return {
-    "nvim-lua/plenary.nvim",
-    version = false, -- no releases
-    lazy = true, -- load on demand by other plugins
+	"nvim-lua/plenary.nvim",
+	version = false, -- no releases
+	lazy = true, -- load on demand by other plugins
 }
+
