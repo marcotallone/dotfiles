@@ -8,4 +8,5 @@ stow nvim
 stow alacritty
 stow fastfetch
 stow p10k
+stow zathura
 
