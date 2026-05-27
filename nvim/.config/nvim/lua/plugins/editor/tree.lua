@@ -16,7 +16,7 @@ return {
 
 		nvimtree.setup({
 			view = {
-				width = 30, -- side bar width
+				width = 40, -- side bar width
 				relativenumber = true, -- show relative line numbers
 			},
 			sort = {
@@ -59,4 +59,3 @@ return {
 		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 	end,
 }
-

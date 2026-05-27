@@ -1,6 +1,10 @@
 -- ┌────────────────────────────────────────────────────────────────────────┐ --
--- │ 󰀵 General Nvim Options                                                 │ --
+-- │   General Nvim Options                                                │ --
 -- └────────────────────────────────────────────────────────────────────────┘ --
+-- │ version: fedora
+-- │ author: Marco Tallone
+-- │ date: May 2026
+--
 -- For more information, see :help <option-name>
 
 -- Line numbers

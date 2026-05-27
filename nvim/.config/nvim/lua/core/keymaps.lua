@@ -1,6 +1,9 @@
 -- ┌────────────────────────────────────────────────────────────────────────┐ --
--- │ 󰀵 General Nvim Keymaps                                                 │ --
+-- │   General Nvim Keymaps                                                │ --
 -- └────────────────────────────────────────────────────────────────────────┘ --
+-- │ version: fedora
+-- │ author: Marco Tallone
+-- │ date: May 2026
 
 -- Set leader to space
 vim.g.mapleader = " "

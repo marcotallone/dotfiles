@@ -1,6 +1,6 @@
 # Neovim Configuration Documentation
 
-> Apple / macOS version
+> Fedora version
 
 Documentation for my personal Neovim setup managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 
