@@ -4,6 +4,7 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	version = false, -- non-standard tag format (nvim-tree-vX.Y.Z)
+	lazy = false,
 	dependencies = "nvim-tree/nvim-web-devicons",
 	cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle", "NvimTreeCollapse", "NvimTreeRefresh" },
 	init = function()
