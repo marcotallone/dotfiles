@@ -4,7 +4,7 @@
 return {
 	"preservim/tagbar",
 	version = false, -- no tags available
-    event="VeryLazy",
+	event = "VeryLazy",
 	keys = {
 		{ "<C-A-b>", "<cmd>TagbarToggle<CR>", desc = "Toggle code structure sidebar" },
 	},

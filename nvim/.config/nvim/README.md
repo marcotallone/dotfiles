@@ -1,5 +1,7 @@
 # Neovim Configuration Documentation
 
+![macOS](https://img.shields.io/badge/macOS-%23.svg?logo=apple&color=000000&logoColor=white)
+
 > Apple / macOS version
 
 Documentation for my personal Neovim setup managed with [lazy.nvim](https://github.com/folke/lazy.nvim).

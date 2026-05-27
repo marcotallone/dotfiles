@@ -1,9 +1,20 @@
+# ┌──────────────────────────────────────────────────────────────────────────┐ #
+# │ 󰀵 zshrc                                                                  │ #
+# └──────────────────────────────────────────────────────────────────────────┘ #
+# │ version: apple
+# │ author: Marco Tallone
+# │ date: May 2026
+
+# PowerLevel10k	────────────────────────────────────────────────────────────────
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# Oh My Zsh ────────────────────────────────────────────────────────────────────
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -86,44 +97,23 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# User Preferences & Configuration ─────────────────────────────────────────────
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
-
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Zoxide
 eval "$(zoxide init zsh)"
-
-# PyEnv
-eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -142,12 +132,39 @@ bindkey "^[[1;3C" forward-word
 bindkey "^[[3;10~" backward-kill-word
 # Delete the word after the cursor. `Option + fn + Delete`:
 bindkey "^[[3;3~" kill-word
-#
 
-# Aliases
+# PyEnv
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# PATH Environemnt Variable ────────────────────────────────────────────────────
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Aliases ──────────────────────────────────────────────────────────────────────
+
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Source the aliases file
+# (in case you want to store them in a separate file)
 if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
 fi
+
+# Conda ────────────────────────────────────────────────────────────────────────
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

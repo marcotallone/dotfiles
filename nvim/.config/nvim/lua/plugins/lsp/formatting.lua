@@ -8,9 +8,9 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
-            -- NOTE: You might not always want to enable formatters
-            --       as they can change the code in ways you might not want.
-            --       Enable only the ones you want by uncommenting them.
+			-- NOTE: You might not always want to enable formatters
+			--       as they can change the code in ways you might not want.
+			--       Enable only the ones you want by uncommenting them.
 			formatters_by_ft = {
 				-- javascript = { "prettier" },
 				-- typescript = { "prettier" },

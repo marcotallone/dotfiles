@@ -4,6 +4,7 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	version = false, -- non-standard tag format (nvim-tree-vX.Y.Z)
+	lazy = false,
 	dependencies = "nvim-tree/nvim-web-devicons",
 	cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle", "NvimTreeCollapse", "NvimTreeRefresh" },
 	init = function()
@@ -16,7 +17,7 @@ return {
 
 		nvimtree.setup({
 			view = {
-				width = 30, -- side bar width
+				width = 40, -- side bar width
 				relativenumber = true, -- show relative line numbers
 			},
 			sort = {
@@ -59,4 +60,3 @@ return {
 		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
 	end,
 }
-

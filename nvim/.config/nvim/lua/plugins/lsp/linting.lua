@@ -8,9 +8,8 @@ return {
 	config = function()
 		local lint = require("lint")
 
-
-        -- NOTE: You might not always want to enable linters.
-        --       Enable only the ones you want by uncommenting them.
+		-- NOTE: You might not always want to enable linters.
+		--       Enable only the ones you want by uncommenting them.
 		lint.linters_by_ft = {
 			-- javascript = { "eslint_d" },
 			-- typescript = { "eslint_d" },
@@ -32,14 +31,14 @@ return {
 			group = lint_augroup,
 			callback = function()
 				-- lint.try_lint()
-                -- NOTE: try_lint has an ignore_errors option to ignore command-not-found errors
-                lint.try_lint(nil, { ignore_errors = true })
+				-- NOTE: try_lint has an ignore_errors option to ignore command-not-found errors
+				lint.try_lint(nil, { ignore_errors = true })
 			end,
 		})
 
 		vim.keymap.set("n", "<leader>ml", function()
 			-- lint.try_lint()
-            lint.try_lint(nil, { ignore_errors = true })
+			lint.try_lint(nil, { ignore_errors = true })
 		end, { desc = "Trigger linting for current file" })
 	end,
 }

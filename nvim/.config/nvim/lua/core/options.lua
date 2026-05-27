@@ -1,6 +1,10 @@
 -- ┌────────────────────────────────────────────────────────────────────────┐ --
 -- │ 󰀵 General Nvim Options                                                 │ --
 -- └────────────────────────────────────────────────────────────────────────┘ --
+-- │ version: apple
+-- │ author: Marco Tallone
+-- │ date: May 2026
+--
 -- For more information, see :help <option-name>
 
 -- Line numbers
