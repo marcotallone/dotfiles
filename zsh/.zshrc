@@ -1,15 +1,9 @@
-# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ #
-# ┃                               ZSHRC FILE                                ┃ #
-# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛ #
-# ZSHELL CONFIGURATION FILE
-# Marco Tallone
-# 12/02/2025
+# ┌──────────────────────────────────────────────────────────────────────────┐ #
+# │   zshrc                                                                 │ #
+# └──────────────────────────────────────────────────────────────────────────┘ #
 
-# INFO: Dotfiles:					https://github.com/marcotallone/dotfiles
+# PowerLevel10k	────────────────────────────────────────────────────────────────
 
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │																PowerLevel10k															│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
