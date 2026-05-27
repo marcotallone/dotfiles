@@ -1,0 +1,21 @@
+-- Autosession
+-- Automatically save and restore sessions based on working directory
+
+return {
+	"rmagatti/auto-session",
+	version = false, -- no releases
+	lazy = false, -- session management must run on startup
+	config = function()
+		local auto_session = require("auto-session")
+
+		auto_session.setup({
+			auto_restore = false, -- disable automatic session restore on startup
+			suppressed_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
+		})
+
+		local keymap = vim.keymap
+
+		keymap.set("n", "<leader>wr", "<cmd>AutoSession restore<CR>", { desc = "Restore session for cwd" })
+		keymap.set("n", "<leader>ws", "<cmd>AutoSession save<CR>", { desc = "Save session for auto session root dir" })
+	end,
+}

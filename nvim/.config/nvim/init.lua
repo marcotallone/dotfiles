@@ -1,11 +1,11 @@
---┌─────────────────────────────────────────────────────────────────────────┐--
---│                             Lazy Nvim Init 															│--
---└─────────────────────────────────────────────────────────────────────────┘--
+-- ┌────────────────────────────────────────────────────────────────────────┐ --
+-- │ 󰀵 Lazy Nvim Init                                                       │ --
+-- └────────────────────────────────────────────────────────────────────────┘ --
 
 -- This first snippet check if the lazy loader has its folder already set up.
 -- If not, it clones the proper repository to install the lazy loader folder.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -17,19 +17,26 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Enable termguicolors for true color support (tmux)
-vim.o.termguicolors = true
-
 -- This second snippet is the main entry point for the lazy loader.
 -- Here we require the necessary modules to set up the nvim configuration.
-require("options") -- general nvim settings
-require("keymaps") -- general purpose key mappings
+require("core.options") -- general nvim options
+require("core.keymaps") -- general nvim keymaps
 require("lazy").setup( -- lazy loader launcher
 	{
-		{ import = "plugins" }, -- plugins folder
-		{ import = "plugins.lsp" }, -- lsp folder
-	},
-	{
+		spec = {
+			-- { import = "plugins" }, -- plugins folder
+			{ import = "plugins.lsp" }, -- lsp plugins
+            { import = "plugins.ui" }, -- ui / aestethic plugins
+            { import = "plugins.editor" }, -- editor / functionalities plugins
+		},
+        defaults = {
+          lazy = true,    -- all plugins lazy by default; each spec overrides as needed
+          version = "*",  -- prefer latest semver tag; plugins without tags auto-fallback to branch
+        },
+		checker = {
+			enabled = true,
+			notify = false,
+		},
 		change_detection = { -- disable changes notifications
 			notify = false,
 		},

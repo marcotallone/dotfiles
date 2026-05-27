@@ -1,5 +1,7 @@
--- Mason
--- A package manager for Neovim plugins and LSP servers.
+--┌─────────────────────────────────────────────────────────────────────────┐--
+--│                                 Mason	    															│--
+--└─────────────────────────────────────────────────────────────────────────┘--
+-- Mason is a package manager for Neovim plugins and LSP servers.
 -- What does it do? It installs and manages plugins and LSP servers for you.
 -- Note that Mason does not manage communication between the LSP and Neovim, it
 -- only installs the LSP servers. The communication part is handled by lspconfig.
@@ -9,12 +11,6 @@
 
 return {
 	"williamboman/mason.nvim",
-    -- NOTE: mason.nvim moved from williamboman/ to mason-org/ organization.
-    -- The old URL still redirects but might be a good idea to update with 
-    -- the following in the future:
-    -- "mason-org/mason.nvim",
-	version = "^2.0", -- pin to mason v2.x
-    event = "VeryLazy",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",

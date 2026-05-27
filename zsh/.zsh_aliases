@@ -1,0 +1,51 @@
+# ┌──────────────────────────────────────────────────────────────────────────┐ #
+# │   zsh Aliases                                                           │ #
+# └──────────────────────────────────────────────────────────────────────────┘ #
+# │ version: fedora
+# │ author: Marco Tallone
+# │ date: May 2026
+
+# System
+alias python=python3
+alias pip=pip3
+
+# General
+alias c='clear'
+alias nf='fastfetch'
+alias pf='fastfetch'
+alias ff='fastfetch'
+alias shutdown='systemctl poweroff'
+alias wifi='nmtui'
+
+# Editor
+alias n='nvim'
+alias v='vim'
+
+# Dotfiles
+alias dot="cd ~/dotfiles && nvim ."
+alias zrc="nvim ~/.zshrc"
+alias zalias="nvim ~/.zsh_aliases"
+
+# Aliases for ls (eza)
+alias l='eza --all --long --header --icons=always'
+alias ls='eza --icons=always'
+alias ll='eza --long --header --icons=always'
+alias lt='eza --tree --level=2 --icons=always'
+alias tree='eza --tree --icons=always'
+
+# Git
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit -m"
+alias gp="git push"
+alias gpl="git pull"
+alias gst="git stash"
+alias gsp="git stash; git pull"
+alias gcheck="git checkout"
+alias gcredential="git config credential.helper store"
+
+# Tmux
+alias t="tmux"
+alias ta="tmux attach"
+alias tls="tmux ls"
+alias ts="tmux new-session"

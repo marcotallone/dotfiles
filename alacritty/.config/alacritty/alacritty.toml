@@ -1,3 +1,10 @@
+# ┌──────────────────────────────────────────────────────────────────────────┐ #
+# │   Alacritty                                                             │ #
+# └──────────────────────────────────────────────────────────────────────────┘ #
+# │ version: fedora
+# │ author: Marco Tallone
+# │ date: May 2026
+
 [font]
 size = 12.0
 
@@ -17,7 +24,7 @@ y = 15
 save_to_clipboard = true
 
 # Tokyo Night theme
-# ref: https://github.com/zatchheems/tokyo-night-alacritty-theme?tab=readme-ov-file
+# INFO: https://github.com/zatchheems/tokyo-night-alacritty-theme?tab=readme-ov-file
 
 [colors]
 

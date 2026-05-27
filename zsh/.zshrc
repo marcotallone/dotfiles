@@ -1,6 +1,9 @@
 # ┌──────────────────────────────────────────────────────────────────────────┐ #
 # │   zshrc                                                                 │ #
 # └──────────────────────────────────────────────────────────────────────────┘ #
+# │ version: fedora
+# │ author: Marco Tallone
+# │ date: May 2026
 
 # PowerLevel10k	────────────────────────────────────────────────────────────────
 
@@ -11,14 +14,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Source theme (linux)
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Oh My Zsh ────────────────────────────────────────────────────────────────────
 
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │																	Oh My Zsh																│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -93,20 +93,18 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-#   For Arch Linux systems
-#   zsh-syntax-highlighting
-#   zsh-autosuggestions
 )
 
-# For Fedora42, if installed with dnf
+# In Fedora 42 the following plugins are installed via dnf
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $ZSH/oh-my-zsh.sh
 
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │										User Preferences and Configuration										│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
+# User Preferences & Configuration ─────────────────────────────────────────────
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -117,8 +115,8 @@ fi
 
 # Enable fzf for zsh key bindings and fuzzy completion
 source <(fzf --zsh)
-# source "/usr/share/fzf/key-bindings.zsh"
-# source "/usr/share/fzf/completion.zsh"
+# INFO: Path: "/usr/share/fzf/key-bindings.zsh"
+# INFO: Path: "/usr/share/fzf/completion.zsh"
 
 # Zoxide
 eval "$(zoxide init zsh)"
@@ -128,24 +126,7 @@ open(){
 	zathura $1 & disown
 }
 
-# Vagrant Docker container for libvirt (function)
-# vagrant(){
-#   docker run -it --rm \
-# 		--privileged \
-# 		-e LIBVIRT_DEFAULT_URI="qemu:///system" \
-#     -v /var/run/libvirt/:/var/run/libvirt/ \
-#     -v ~/.vagrant.d:/.vagrant.d \
-#     -v $(realpath "${PWD}"):${PWD} \
-#     -w "${PWD}" \
-#     --network host \
-#     vagrantlibvirt/vagrant-libvirt:latest \
-#       vagrant $@
-# }
-# export KUBECONFIG=/home/marco/.kube/config.demo
-
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │															 Path Variables															│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
+# PATH Environemnt Variable ────────────────────────────────────────────────────
 
 # ???
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -169,27 +150,8 @@ alias pip="pip3"
 # System-wise libraries pre-pend to library path
 export LD_LIBRARY_PATH=/usr/lib64${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │																	 Conda	  															│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/marco/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/marco/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/marco/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/marco/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# Aliases ──────────────────────────────────────────────────────────────────────
 
-# ┌─────────────────────────────────────────────────────────────────────────┐	#
-# │																	Aliases 																│ #
-# └─────────────────────────────────────────────────────────────────────────┘ #
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
 # users are encouraged to define aliases within a top-level file in
@@ -204,64 +166,24 @@ unset __conda_setup
 
 # Source the aliases file
 # (in case you want to store them in a separate file)
-# if [ -f ~/.zsh_aliases ]; then
-# 		source ~/.zsh_aliases
-# fi
+if [ -f ~/.zsh_aliases ]; then
+		source ~/.zsh_aliases
+fi
 
-# General
-alias c='clear'
-alias nf='fastfetch'
-alias pf='fastfetch'
-alias ff='fastfetch'
-alias shutdown='systemctl poweroff'
-alias wifi='nmtui'
+# Conda ────────────────────────────────────────────────────────────────────────
 
-# Editor
-alias n='$EDITOR'
-alias v='vim'
-# alias vim='$EDITOR'
-
-# Dotfiles
-# alias ts='~/dotfiles/scripts/snapshot.sh'
-alias dot="cd ~/dotfiles && nvim ."
-alias zrc="nvim ~/.zshrc"
-alias zalias="nvim ~/.zsh_aliases"
-# alias cleanup='~/dotfiles/scripts/cleanup.sh'
-
-# Aliases for ls (eza)
-alias ls='eza -a --icons=always'
-alias ll='eza -alrt created --icons=always'
-alias lt='eza -a --tree --level=1 --icons=always'
-alias tree='eza -a --tree --icons=always'
-# alias tree="eza --tree"
-
-# Git
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gp="git push"
-alias gpl="git pull"
-alias gst="git stash"
-alias gsp="git stash; git pull"
-alias gcheck="git checkout"
-alias gcredential="git config credential.helper store"
-
-# Aliases for cat (batcat)
-# if command -v bat > /dev/null; then
-# 	alias cat="bat"
-# elif command -v batcat > /dev/null; then
-# 	alias cat="batcat"
-# fi
-
-# Kubernetes
-alias k="kubectl"
-alias kpod="kubectl get pods"
-alias ksvc="kubectl get svc"
-alias kd="kubectl describe"
-
-# Tmux
-alias t="tmux"
-alias ta="tmux attach"
-alias tls="tmux ls"
-alias ts="tmux new-session"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/marco/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/marco/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/marco/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/marco/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
