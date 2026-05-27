@@ -3,6 +3,7 @@
 
 return {
   "szw/vim-maximizer",
+version = false, -- no tags available
   keys = {
     { "<leader>sm",
 			"<cmd>MaximizerToggle<CR>",

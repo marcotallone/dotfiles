@@ -6,18 +6,14 @@
 
 return {
 	"neovim/nvim-lspconfig",
+	-- version = false, -- if desired, use HEAD for latest server configurations
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
-		-- Local Variables
-		local cmp_nvim_lsp = require("cmp_nvim_lsp") -- nvim-cmp for autocompletion
-		local keymap = vim.keymap -- for conciseness
-
 		-- Keymaps (only active when LSP is attached to buffer)
-		local opts = { noremap = true, silent = true }
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
 				local bufnr = args.buf
@@ -85,7 +81,7 @@ return {
 
 		-- Servers that need extra settings
 		vim.lsp.config("ltex", {
-			filetypes = { "txt", "tex" },
+			filetypes = { "tex" }, -- ltex only targets LaTeX, not plain text
 		})
 		vim.lsp.enable("ltex")
 

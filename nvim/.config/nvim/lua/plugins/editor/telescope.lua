@@ -3,7 +3,8 @@
 
 return {
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
+    -- branch = "0.1.x" -- OLD: pin to old 0.1.x branch for stability
+	cmd = "Telescope", -- lazy load on first :Telescope command
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -14,6 +15,11 @@ return {
 		-- Local variables (for conciseness)
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+        -- Stubs for actions missing in telescope v0.2.x:
+        -- defined in default_mappings but not yet in actions/init.lua (open bug)
+        actions.mouse_click = function() return "" end
+        actions.double_mouse_click = function() return "" end
+
 		local keymap = vim.keymap
 		local transform_mod = require("telescope.actions.mt").transform_mod
 		local trouble = require("trouble")

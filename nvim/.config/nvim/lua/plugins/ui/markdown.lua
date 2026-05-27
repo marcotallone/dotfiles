@@ -3,7 +3,7 @@
 
 return {
 	{
-		"MeanderingProgrammer/markdown.nvim",
+		"MeanderingProgrammer/render-markdown.nvim",
 		main = "render-markdown",
 		name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
         ft = { "markdown" },

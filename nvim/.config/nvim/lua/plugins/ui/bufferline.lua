@@ -5,6 +5,7 @@ return {
   "akinsho/bufferline.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   version = "*",
+  lazy = false, -- tabline must render on startup
   opts = {
     options = {
       mode = "tabs",

@@ -6,6 +6,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        version = false, -- no releases (repo archived Apr 2026, main branch is frozen)
         branch = "main",
         build = ":TSUpdate",
         event = { "BufReadPre", "BufNewFile" },
@@ -51,6 +52,7 @@ return {
     -- This must be configured separately now
     {
         "windwp/nvim-ts-autotag",
+        version = false, -- no releases
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("nvim-ts-autotag").setup({
@@ -64,6 +66,7 @@ return {
     -- You need "treesitter-modules" to restore it
     {
         "MeanderingProgrammer/treesitter-modules.nvim",
+        version = false, -- no releases
         event = { "BufReadPre", "BufNewFile" },
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         opts = {
@@ -83,67 +86,59 @@ return {
 
 
 --------------------------------------------------------------------------------
--- -- OLD: old 'master' branch configuration (for backwards compatibility)
+-- FALLBACK: 'master' branch configuration (old API, pre-2025 style)
+-- To switch: comment out the active return{} block above, uncomment this block.
+-- NOTE: nvim-treesitter/nvim-treesitter was archived Apr 3, 2026 (read-only).
+--       Both main and master are frozen. 'main' is the recommended active config.
+--
 -- return {
-	-- "nvim-treesitter/nvim-treesitter",
-	-- event = { "BufReadPre", "BufNewFile" },
-	-- build = ":TSUpdate",
-    -- branch = "master",
-	-- dependencies = {
-	-- 	"windwp/nvim-ts-autotag", -- Auto close and auto rename html tags
-	-- },
-
-	-- config = function()
-	-- 	local config = require("nvim-treesitter.configs")
-
-	-- 	config.setup({
-
-	-- 		-- Enable indentation
-	-- 		indent = {
-	-- 			enable = true,
-	-- 		},
-
-	-- 		-- Enable syntax highlighting
-	-- 		highlight = {
-	-- 			enable = true,
-    --             -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    --             -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    --             -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    --             -- Instead of true it can also be a list of languages
-    --             additional_vim_regex_highlighting = false,
-	-- 		},
-
-	-- 		-- Enable autotagging (with nvim-ts-autotag plugin)
-	-- 		autotag = {
-	-- 		  enable = true,
-	-- 		},
-
-	-- 		-- Ensure these language parser are installed
-	-- 		ensure_installed = {
-	-- 			"lua",
-	-- 			"python",
-	-- 			"c",
-	-- 			"cpp",
-	-- 			"cmake",
-	-- 			"dockerfile",
-	-- 			"bash",
-	-- 			"fortran",
-	-- 			"markdown",
-	-- 			"latex",
-	-- 			"vim",
-	-- 			"vimdoc",
-	-- 		},
-
-	-- 		-- Keymaps for incremental selection based on the language syntax
-	-- 		incremental_selection = {
-	-- 			enable = true,
-	-- 			keymaps = {
-	-- 				init_selection = "<C-space>",
-	-- 				node_incremental = "<C-space>",
-	-- 				scope_incremental = false,
-	-- 				node_decremental = "<bs>",
-	-- 			},
-	-- 		},
-	-- 	})
-	-- end,
+-- 	"nvim-treesitter/nvim-treesitter",
+-- 	version = false,
+-- 	branch = "master",
+-- 	build = ":TSUpdate",
+-- 	event = { "BufReadPre", "BufNewFile" },
+-- 	dependencies = {
+-- 		{ "windwp/nvim-ts-autotag", version = false }, -- auto close/rename html tags
+-- 	},
+-- 	config = function()
+-- 		local tsconfig = require("nvim-treesitter.configs")
+-- 		tsconfig.setup({
+-- 			-- Enable indentation
+-- 			indent = { enable = true },
+-- 			-- Enable syntax highlighting
+-- 			highlight = {
+-- 				enable = true,
+-- 				additional_vim_regex_highlighting = false,
+-- 			},
+-- 			-- Enable autotagging (handled via the dependency above)
+-- 			autotag = { enable = true },
+-- 			-- Parsers to install (keep in sync with main branch list above)
+-- 			ensure_installed = {
+-- 				"python",
+-- 				"cpp",
+-- 				"cmake",
+-- 				"dockerfile",
+-- 				"bash",
+-- 				"fortran",
+-- 				"markdown",
+-- 				"latex",
+-- 				-- Always install these five
+-- 				"lua",
+-- 				"vim",
+-- 				"vimdoc",
+-- 				"c",
+-- 				"query",
+-- 			},
+-- 			-- Incremental selection keymaps
+-- 			incremental_selection = {
+-- 				enable = true,
+-- 				keymaps = {
+-- 					init_selection = "<C-space>",
+-- 					node_incremental = "<C-space>",
+-- 					scope_incremental = false,
+-- 					node_decremental = "<bs>",
+-- 				},
+-- 			},
+-- 		})
+-- 	end,
 -- }

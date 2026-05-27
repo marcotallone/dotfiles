@@ -3,12 +3,14 @@
 
 return {
 	"rmagatti/auto-session",
+	version = false, -- no releases
+	lazy = false, -- session management must run on startup
 	config = function()
 		local auto_session = require("auto-session")
 
 		auto_session.setup({
-			auto_restore_enabled = false, -- disable automatic session restore on startup
-			auto_session_suppress_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
+			auto_restore = false, -- disable automatic session restore on startup
+			suppressed_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
 		})
 
 		local keymap = vim.keymap

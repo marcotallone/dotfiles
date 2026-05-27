@@ -3,13 +3,16 @@
 
 return {
 	"nvim-tree/nvim-tree.lua",
+	version = false, -- non-standard tag format (nvim-tree-vX.Y.Z)
 	dependencies = "nvim-tree/nvim-web-devicons",
-	config = function()
-		local nvimtree = require("nvim-tree")
-
-		-- recommended settings from nvim-tree documentation
+	cmd = { "NvimTreeToggle", "NvimTreeFindFileToggle", "NvimTreeCollapse", "NvimTreeRefresh" },
+	init = function()
+		-- must run before lazy init to prevent netrw from loading
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
+	end,
+	config = function()
+		local nvimtree = require("nvim-tree")
 
 		nvimtree.setup({
 			view = {

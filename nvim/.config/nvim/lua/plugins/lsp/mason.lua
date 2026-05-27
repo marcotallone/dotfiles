@@ -9,6 +9,12 @@
 
 return {
 	"williamboman/mason.nvim",
+    -- NOTE: mason.nvim moved from williamboman/ to mason-org/ organization.
+    -- The old URL still redirects but might be a good idea to update with 
+    -- the following in the future:
+    -- "mason-org/mason.nvim",
+	version = "^2.0", -- pin to mason v2.x
+    event = "VeryLazy",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",

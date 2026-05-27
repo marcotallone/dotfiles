@@ -3,9 +3,11 @@
 
 return {
 	"mfussenegger/nvim-lint",
+	version = false, -- no releases
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
+
 
         -- NOTE: You might not always want to enable linters.
         --       Enable only the ones you want by uncommenting them.
@@ -29,12 +31,15 @@ return {
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			group = lint_augroup,
 			callback = function()
-				lint.try_lint()
+				-- lint.try_lint()
+                -- NOTE: try_lint has an ignore_errors option to ignore command-not-found errors
+                lint.try_lint(nil, { ignore_errors = true })
 			end,
 		})
 
 		vim.keymap.set("n", "<leader>ml", function()
-			lint.try_lint()
+			-- lint.try_lint()
+            lint.try_lint(nil, { ignore_errors = true })
 		end, { desc = "Trigger linting for current file" })
 	end,
 }

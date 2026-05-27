@@ -4,6 +4,8 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	version = false, -- no releases
+	lazy = false, -- statusline must render on startup
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- pending updates count

@@ -3,5 +3,6 @@
 
 return {
     "christoomey/vim-tmux-navigator",
+	version = false, -- no tags available
     lazy = false, -- load on startup
 }
