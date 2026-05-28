@@ -1,5 +1,7 @@
 # Neovim Configuration Documentation
 
+![Fedora](https://img.shields.io/badge/Fedora-%23.svg?logo=fedora&color=51A2DA&logoColor=white)
+
 > Fedora version
 
 Documentation for my personal Neovim setup managed with [lazy.nvim](https://github.com/folke/lazy.nvim).

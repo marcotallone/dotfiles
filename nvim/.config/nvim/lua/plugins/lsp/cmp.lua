@@ -24,7 +24,9 @@ return {
 
 			-- Enable LSP completion
 			completion = {
-				completeopt = "menu,menuone,preview,noselect",
+				completeopt = "menu,menuone,preview",
+				-- completeopt = "menu,menuone,preview,noselect", 
+                -- NOTE: noselect avoids autoselecting the suggestion, pari with select = false below
 			},
 
 			-- Configure how nvim-cmp interacts with snippet engine
@@ -42,7 +44,8 @@ return {
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
 				["<C-e>"] = cmp.mapping.abort(), -- close completion window
-				["<CR>"] = cmp.mapping.confirm({ select = false }), -- confirm completion
+				["<Tab>"] = cmp.mapping.confirm(), -- confirm completion
+				-- ["<CR>"] = cmp.mapping.confirm({ select = false }), -- confirm completion
 			}),
 
 			-- Sources for autocompletion (in priority order)

@@ -1,6 +1,9 @@
 -- Formatting
 -- Code formatting using 'conform'
 
+-- NOTE: To apply personalized cland formatting for C/C++ remember to stow clangd
+--       configuration in dotfiles
+
 return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
@@ -23,10 +26,10 @@ return {
 				-- yaml = { "prettier" },
 				markdown = { "markdownlint" },
 				lua = { "stylua" },
-				-- python = { "isort", "black" },
+				python = { "isort", "black" },
 				-- latex = { "latexindent" },
-				-- c = { "clang-format" },
-				-- cpp = { "clang-format" },
+				c = { "clang-format" },
+				cpp = { "clang-format" },
 			},
 			format_on_save = { -- enable format on save
 				lsp_fallback = true,
