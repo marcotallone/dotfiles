@@ -67,7 +67,6 @@ return {
 		-- Configure LSP servers
 		vim.lsp.enable({
 			"bashls",
-			"clangd",
 			"cmake",
 			"dockerls",
 			"fortls",
@@ -80,6 +79,18 @@ return {
 		})
 
 		-- Servers that need extra settings
+        vim.lsp.config("clangd", {
+            -- NOTE: According to https://clangd.llvm.org/troubleshooting
+            -- It is recommended to use --query-driver over specifying system 
+            -- include paths manually as getting the latter right can be tricky 
+            -- (order of include paths matters).
+            cmd = {
+                "clangd",
+                "--query-driver=/usr/bin/gcc,/usr/bin/g++,/usr/bin/clang,/usr/bin/clang++",
+            },
+        })
+        vim.lsp.enable("clangd")
+
 		vim.lsp.config("ltex", {
 			filetypes = { "tex" }, -- ltex only targets LaTeX, not plain text
 		})
