@@ -25,12 +25,13 @@ return {
 			cpp = { "cpplint" },
 		}
 
-                lint.linters.cpplint.args = vim.list_extend(
-            vim.deepcopy(lint.linters.cpplint.args),
-            { 
-                "--filter=-whitespace/indent,-legal/copyright" }
-                -- "--filter=-whitespace/indent,-legal/copyright,-build/include_order" }
-        )
+		lint.linters.cpplint.args = vim.list_extend(
+			vim.deepcopy(lint.linters.cpplint.args),
+			{
+				"--filter=-whitespace/indent,-legal/copyright,-whitespace/newline",
+			}
+			-- "--filter=-whitespace/indent,-legal/copyright,-build/include_order" }
+		)
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
