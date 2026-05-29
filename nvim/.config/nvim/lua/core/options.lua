@@ -70,3 +70,9 @@ vim.cmd("set splitbelow") -- follow window splitting to the bottom
 
 -- Options for auto-session
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+-- This is to re-enable 'nvim.trouble' diagnostics highlighting
+-- The "virtual_text" handler is disabled by default. Enable with lua.
+-- INFO: https://github.com/folke/trouble.nvim/issues/636#issuecomment-2796259794
+-- INFO: https://github.com/neovim/neovim/blob/3aa833e0d90204102bb8a90a5d7dc1323b882bfd/runtime/doc/news-0.11.txt#L45-L47
+vim.diagnostic.config({ virtual_text = true })

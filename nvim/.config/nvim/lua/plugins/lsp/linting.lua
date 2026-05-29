@@ -18,12 +18,25 @@ return {
 			-- svelte = { "eslint_d" },
 			python = { "pylint" },
 			latex = { "chktex" },
-			tex = { "chktex" },
+			-- tex = { "chktex" },
 			markdown = { "markdownlint" },
 			-- text = { "vale" },
-			-- c = { "cpplint" },
-			-- cpp = { "cpplint" },
+			c = { "cpplint" },
+			cpp = { "cpplint" },
 		}
+
+		lint.linters.cpplint.args = vim.list_extend(
+			-- NOTE: clanged ignore / C ignore / C++ ignore
+			vim.deepcopy(lint.linters.cpplint.args),
+			{
+				"--filter=-whitespace/indent,-legal/copyright,-whitespace/newline,-build/c++17,-build/include_subdir,-readability/todo",
+			}
+		)
+
+		lint.linters.markdownlint.args = vim.list_extend(vim.deepcopy(lint.linters.markdownlint.args), {
+			"--disable",
+			"MD033", -- allow for HTML elements in markdown
+		})
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 

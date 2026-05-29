@@ -11,11 +11,18 @@ vim.g.mapleader = " "
 -- For conciseness
 local keymap = vim.keymap
 
--- Save
-keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save" })
+-- Save (use vim.cmd to avoid noice cmdline popup, show explicit notification instead)
+-- OLD: keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save" })
+keymap.set("n", "<C-s>", function()
+	vim.cmd("write")
+	vim.notify("File saved", vim.log.levels.INFO, { title = "Save" })
+end, { desc = "Save" })
 
 -- Exit
-keymap.set("n", "<C-q>", ":qa<CR>", { desc = "Exit" })
+-- OLD: keymap.set("n", "<C-q>", ":qa<CR>", { desc = "Exit" })
+keymap.set("n", "<C-q>", function()
+	vim.cmd("qa")
+end, { desc = "Exit" })
 
 -- Undo (in insert mode)
 vim.api.nvim_set_keymap("i", "<C-z>", "<C-o>u", { noremap = true, silent = true })
@@ -42,23 +49,7 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 keymap.set("n", "<S-Tab>", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 
--- -- Copilot suggestions
--- local function SuggestOneCharacter()
--- 	local suggestion = vim.fn["copilot#Accept"]("")
--- 	local bar = vim.fn["copilot#TextQueuedForInsertion"]()
--- 	return bar:sub(1, 1)
--- end
-
--- local function SuggestOneWord()
--- 	local suggestion = vim.fn["copilot#Accept"]("")
--- 	local bar = vim.fn["copilot#TextQueuedForInsertion"]()
--- 	return vim.fn.split(bar, [[[ .]\zs]])[1]
--- end
-
--- keymap.set("i", "<C-l>", SuggestOneCharacter, { expr = true, desc = "Suggest one character" })
--- keymap.set("i", "<C-A-l>", SuggestOneWord, { expr = true, desc = "Suggest one word" })
-
--- LaTeX keymaps
+---------- LaTeX keymaps ----------
 
 -- -- Equation* Environment
 -- vim.api.nvim_set_keymap(

@@ -44,7 +44,10 @@ return {
 				vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
 				opts.desc = "Show line diagnostics"
-				vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+				-- vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+				vim.keymap.set("n", "<leader>d", function()
+					require("hover").open({ providers = { "hover.providers.diagnostic" } })
+				end, opts)
 
 				opts.desc = "Go to previous diagnostic"
 				vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
@@ -52,8 +55,10 @@ return {
 				opts.desc = "Go to next diagnostic"
 				vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
-				opts.desc = "Show documentation for what is under cursor"
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+				-- OLD:
+				-- opts.desc = "Show documentation for what is under cursor"
+				-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+				-- NOTE: K is bound globally by hover.nvim (see lua/plugins/lsp/hover.lua)
 
 				opts.desc = "Restart LSP"
 				vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
@@ -67,7 +72,6 @@ return {
 		-- Configure LSP servers
 		vim.lsp.enable({
 			"bashls",
-			"clangd",
 			"cmake",
 			"dockerls",
 			"fortls",
@@ -80,6 +84,18 @@ return {
 		})
 
 		-- Servers that need extra settings
+		vim.lsp.config("clangd", {
+			-- NOTE: According to https://clangd.llvm.org/troubleshooting
+			-- It is recommended to use --query-driver over specifying system
+			-- include paths manually as getting the latter right can be tricky
+			-- (order of include paths matters).
+			cmd = {
+				"clangd",
+				"--query-driver=/usr/bin/gcc,/usr/bin/g++,/usr/bin/clang,/usr/bin/clang++",
+			},
+		})
+		vim.lsp.enable("clangd")
+
 		vim.lsp.config("ltex", {
 			filetypes = { "tex" }, -- ltex only targets LaTeX, not plain text
 		})
