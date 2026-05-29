@@ -27,7 +27,7 @@ return {
 
 				["vim.lsp.util.convert_input_to_markdown_lines"] = false,
 				["vim.lsp.util.stylize_markdown"] = false,
-				["cmp.entry.get_documentation"] = false,
+				["cmp.entry.get_documentation"] = true, -- NOTE: leave 'true' otherwise cmp suggestions won't appear
 			},
 			-- Let Neovim manage the hover window; noice must not intercept it.
 			hover = { enabled = false },
