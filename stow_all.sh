@@ -7,4 +7,4 @@ stow tmux
 stow nvim
 stow alacritty
 stow p10k
-
+stow clangd
