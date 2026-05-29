@@ -11,7 +11,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Source theme (linux)
@@ -92,7 +92,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+    git
 )
 
 # In Fedora 42 the following plugins are installed via dnf
@@ -108,9 +108,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+    export EDITOR='vim'
 else
-  export EDITOR='nvim'
+    export EDITOR='nvim'
 fi
 
 # Enable fzf for zsh key bindings and fuzzy completion
@@ -121,11 +121,29 @@ source <(fzf --zsh)
 # Zoxide
 eval "$(zoxide init zsh)"
 
-# Open pdf function with zathura & disown
+# Open files with appropriate applications
 open(){
-	zathura $1 & disown
+    # Get the file extension
+    local extension="${1##*.}"
+    
+    # Convert to lowercase for case-insensitive comparison
+    extension="${extension:l}"
+    
+    case "$extension" in
+        pdf)
+            zathura "$1" & disown
+        ;;
+        md|markdown)
+            firefox --new-window "$1" & disown
+        ;;
+        html|htm)
+            firefox --new-window "$1" & disown
+        ;;
+        *)
+            echo "Cannot open files with this extension."
+        ;;
+    esac
 }
-
 # PATH Environemnt Variable ────────────────────────────────────────────────────
 
 # ???
@@ -167,7 +185,7 @@ export LD_LIBRARY_PATH=/usr/lib64${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
 # Source the aliases file
 # (in case you want to store them in a separate file)
 if [ -f ~/.zsh_aliases ]; then
-		source ~/.zsh_aliases
+    source ~/.zsh_aliases
 fi
 
 # Conda ────────────────────────────────────────────────────────────────────────

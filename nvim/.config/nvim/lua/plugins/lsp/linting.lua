@@ -33,6 +33,11 @@ return {
 			}
 		)
 
+		lint.linters.markdownlint.args = vim.list_extend(vim.deepcopy(lint.linters.markdownlint.args), {
+			"--disable",
+			"MD033", -- allow for HTML elements in markdown
+		})
+
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
