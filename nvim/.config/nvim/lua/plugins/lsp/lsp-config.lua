@@ -137,5 +137,45 @@ return {
 				},
 			},
 		})
-	end,
+
+        -- FIXME:
+		-- -- Post-process LSP hover responses to clean up raw Doxygen tags
+		-- -- that clangd passes through without converting (\brief, \param, etc.)
+		-- local orig_hover = vim.lsp.handlers["textDocument/hover"]
+		-- vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+		-- 	if result and result.contents then
+		-- 		local function clean_doxygen(text)
+		-- 			if type(text) ~= "string" then return text end
+		-- 			-- Strip bare section-marker tags (content follows on same line)
+		-- 			text = text:gsub("\\brief%s+", "")
+		-- 			text = text:gsub("\\details%s+", "")
+		-- 			text = text:gsub("\\short%s+", "")
+		-- 			-- Normalise \param[in], \param[out], \param[in,out] → \param
+		-- 			text = text:gsub("\\param%[.-%]%s+", "\\param ")
+		-- 			-- Format \param name description → - **`name`**: description
+		-- 			text = text:gsub("\\param%s+(%S+)%s+", "- **`%1`**: ")
+		-- 			-- Format \return / \returns
+		-- 			text = text:gsub("\\returns?%s+", "**Returns:** ")
+		-- 			-- Format \see / \sa
+		-- 			text = text:gsub("\\see%s+", "**See also:** ")
+		-- 			text = text:gsub("\\sa%s+", "**See also:** ")
+		-- 			-- Format \note and \warning as blockquotes
+		-- 			text = text:gsub("\\note%s+", "> **Note:** ")
+		-- 			text = text:gsub("\\warning%s+", "> **Warning:** ")
+		-- 			-- Format \deprecated
+		-- 			text = text:gsub("\\deprecated%s+", "> **Deprecated:** ")
+		-- 			-- Format \throw / \throws
+		-- 			text = text:gsub("\\throws?%s+(%S+)%s+", "**Throws** `%1`: ")
+		-- 			return text
+		-- 		end
+		-- 		if type(result.contents) == "string" then
+		-- 			result.contents = clean_doxygen(result.contents)
+		-- 		elseif type(result.contents) == "table" and result.contents.value then
+		-- 			result.contents.value = clean_doxygen(result.contents.value)
+		-- 		end
+		-- 	end
+		-- 	return orig_hover(err, result, ctx, config)
+		-- end	
+
+    end,
 }

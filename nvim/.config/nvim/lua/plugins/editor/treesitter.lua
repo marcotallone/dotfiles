@@ -22,6 +22,8 @@ return {
 				"bash",
 				"fortran",
 				"markdown",
+				"markdown_inline", -- required by noice.nvim for LSP doc highlighting
+				"regex",           -- required by noice.nvim for cmdline highlighting
 				"latex",
 				-- The five parsers below should ALWAYS be installed
 				"lua",

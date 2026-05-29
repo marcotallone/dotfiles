@@ -11,11 +11,19 @@ vim.g.mapleader = " "
 -- For conciseness
 local keymap = vim.keymap
 
--- Save
-keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save" })
+-- Save (use vim.cmd to avoid noice cmdline popup, show explicit notification instead)
+-- OLD: keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save" })
+keymap.set("n", "<C-s>", function()
+	vim.cmd("write")
+	vim.notify("File saved", vim.log.levels.INFO, { title = "Save" })
+end, { desc = "Save" })
 
 -- Exit
-keymap.set("n", "<C-q>", ":qa<CR>", { desc = "Exit" })
+-- OLD: keymap.set("n", "<C-q>", ":qa<CR>", { desc = "Exit" })
+keymap.set("n", "<C-q>", function()
+    vim.cmd("qa")
+end, { desc = "Exit" })
+
 
 -- Undo (in insert mode)
 vim.api.nvim_set_keymap("i", "<C-z>", "<C-o>u", { noremap = true, silent = true })
