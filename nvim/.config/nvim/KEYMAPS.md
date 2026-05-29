@@ -5,10 +5,10 @@
 
 ## General
 
-| Key          | Mode   | Description             |
-| ------------ | ------ | ----------------------- |
-| `<C-s>`      | Normal | Save file               |
-| `<C-q>`      | Normal | Quit all                |
+| Key          | Mode   | Description                             |
+| ------------ | ------ | --------------------------------------- |
+| `<C-s>`      | Normal | Save file (shows a notification popup)  |
+| `<C-q>`      | Normal | Quit all                                |
 | `<C-z>`      | Insert | Undo                    |
 | `<C-a>`      | Insert | Redo                    |
 | `<leader>nh` | Normal | Clear search highlights |
@@ -92,21 +92,24 @@
 
 ## LSP (active when LSP is attached)
 
-| Key          | Mode           | Description                        |
-| ------------ | -------------- | ---------------------------------- |
-| `gR`         | Normal         | Show references (Telescope)        |
-| `gD`         | Normal         | Go to declaration                  |
-| `gd`         | Normal         | Go to definition (Telescope)       |
-| `gi`         | Normal         | Go to implementations (Telescope)  |
-| `gt`         | Normal         | Go to type definitions (Telescope) |
-| `K`          | Normal         | Hover documentation                |
-| `<leader>ca` | Normal, Visual | Code actions                       |
-| `<leader>rn` | Normal         | Rename symbol                      |
-| `<leader>D`  | Normal         | Buffer diagnostics (Telescope)     |
-| `<leader>d`  | Normal         | Line diagnostics                   |
-| `[d`         | Normal         | Previous diagnostic                |
-| `]d`         | Normal         | Next diagnostic                    |
-| `<leader>rs` | Normal         | Restart LSP                        |
+| Key          | Mode           | Description                                       |
+| ------------ | -------------- | ------------------------------------------------- |
+| `gR`         | Normal         | Show references (Telescope)                       |
+| `gD`         | Normal         | Go to declaration                                 |
+| `gd`         | Normal         | Go to definition (Telescope)                      |
+| `gi`         | Normal         | Go to implementations (Telescope)                 |
+| `gt`         | Normal         | Go to type definitions (Telescope)                |
+| `K`          | Normal         | Hover documentation (hover.nvim, all sources)     |
+| `gK`         | Normal         | Enter the hover floating window                   |
+| `<C-p>`      | Normal         | Hover: switch to previous source                  |
+| `<C-n>`      | Normal         | Hover: switch to next source                      |
+| `<leader>ca` | Normal, Visual | Code actions                                      |
+| `<leader>rn` | Normal         | Rename symbol                                     |
+| `<leader>D`  | Normal         | Buffer diagnostics (Telescope)                    |
+| `<leader>d`  | Normal         | Line diagnostics (hover.nvim diagnostic provider) |
+| `[d`         | Normal         | Previous diagnostic                               |
+| `]d`         | Normal         | Next diagnostic                                   |
+| `<leader>rs` | Normal         | Restart LSP                                       |
 
 ## Formatting and Linting
 
@@ -126,3 +129,4 @@
 | `<C-Space>` | Insert | Open completion menu     |
 | `<C-e>`     | Insert | Close completion menu    |
 | `<CR>`      | Insert | Confirm completion       |
+| `<Tab>`     | Insert | Confirm completion       |

@@ -63,7 +63,8 @@ nvim/
         │   ├── dressing.lua
         │   ├── indent-line.lua
         │   ├── lualine.lua
-        │   └── markdown.lua
+        │   ├── markdown.lua
+        │   └── noice.lua
         ├── editor/                 Editor functionality plugins
         │   ├── autopairs.lua
         │   ├── autosession.lua
@@ -85,6 +86,7 @@ nvim/
         └── lsp/                    Language server and completion plugins
             ├── cmp.lua
             ├── formatting.lua
+            ├── hover.lua
             ├── linting.lua
             ├── lsp-config.lua
             └── mason.lua
@@ -338,6 +340,21 @@ Draws a subtle vertical guide line at each indentation level. Uses the `┊` cha
 
 Renders Markdown files with visual enhancements: styled headings, rendered checkboxes, code block backgrounds, and table borders. HTML and LaTeX rendering are disabled. Loads only for Markdown files (`ft = { "markdown" }`).
 
+### Noice (UI Overhaul)
+
+> **File:** [`lua/plugins/ui/noice.lua`](./lua/plugins/ui/noice.lua)\
+> **Plugin:** [folke/noice.nvim](https://github.com/folke/noice.nvim)\
+> **Dependencies:** [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim), [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)
+
+Replaces Neovim's built-in UI for messages, the command line, and the popup menu with styled floating windows.
+
+Key configuration choices:
+
+- `lsp.hover` and `lsp.signature` are **disabled** so that hover window management is fully handled by hover.nvim (see below), avoiding a known deduplication bug in noice that causes hover to silently fail on repeated `K` presses.
+- `bottom_search = true` keeps the `/` and `?` search prompt at the classic bottom position.
+- `command_palette = false` with explicit `views.cmdline_popup` positioning places the command line near the bottom of the editor (`row = "90%"`).
+- A route suppresses the default `"N lines written"` message since `<C-s>` shows an explicit `vim.notify` notification instead.
+
 ---
 
 ## Editor Plugins
@@ -411,7 +428,7 @@ This config uses the `main` branch, which introduced a new API in 2025. The key 
 - Highlighting and indentation are enabled per buffer using a `FileType` autocmd, not a global `configs.setup()` call.
 - Features removed from core require separate plugins. Incremental selection uses [treesitter-modules.nvim](https://github.com/MeanderingProgrammer/treesitter-modules.nvim) and auto-tagging uses [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) as standalone plugins.
 
-**Installed parsers:** `python`, `cpp`, `cmake`, `dockerfile`, `bash`, `fortran`, `markdown`, `latex`, `lua`, `vim`, `vimdoc`, `c`, `query`. The last five should always be installed as they are needed by Neovim and lazy.nvim itself.
+**Installed parsers:** `python`, `cpp`, `cmake`, `dockerfile`, `bash`, `fortran`, `markdown`, `markdown_inline`, `regex`, `latex`, `lua`, `vim`, `vimdoc`, `c`, `query`. The last five should always be installed as they are needed by Neovim and lazy.nvim itself. `markdown_inline` and `regex` are required by noice.nvim for its treesitter-based rendering.
 
 **Incremental selection (via treesitter-modules.nvim):**
 
@@ -615,11 +632,39 @@ All LSP keymaps are registered inside a `LspAttach` autocmd so they are only act
 | `<leader>ca` | Show available code actions                                |
 | `<leader>rn` | Rename symbol                                              |
 | `<leader>D`  | Show all diagnostics for the current buffer (in Telescope) |
-| `<leader>d`  | Show diagnostics for the current line                      |
+| `<leader>d`  | Show line diagnostics (via hover.nvim diagnostic provider) |
 | `[d`         | Go to previous diagnostic                                  |
 | `]d`         | Go to next diagnostic                                      |
-| `K`          | Show hover documentation                                   |
+| `K`          | Show hover documentation (via hover.nvim)                  |
+| `gK`         | Enter the hover window                                     |
+| `<C-p>`      | Hover: switch to previous source                           |
+| `<C-n>`      | Hover: switch to next source                               |
 | `<leader>rs` | Restart the LSP server                                     |
+
+### Hover Documentation (hover.nvim)
+
+> **File:** [`lua/plugins/lsp/hover.lua`](./lua/plugins/lsp/hover.lua)\
+> **Plugin:** [lewis6991/hover.nvim](https://github.com/lewis6991/hover.nvim)
+
+Replaces `vim.lsp.buf.hover` with a multi-source hover framework. Unlike the built-in hover, hover.nvim supports multiple content providers and lets you cycle through them. It also does not suffer from the noice deduplication bug that causes hover to silently fail on repeated `K` presses.
+
+**Configured providers** (in order):
+
+1. `hover.providers.lsp` — LSP hover documentation (symbol docs, signatures)
+2. `hover.providers.diagnostic` — Diagnostics for the current line
+3. `hover.providers.man` — Man page entries for the word under the cursor
+
+The hover window border and title are dynamically colored based on the worst diagnostic severity on the current line (error → warning → info → hint → default).
+
+| Key     | Description                               |
+| ------- | ----------------------------------------- |
+| `K`     | Show hover documentation (global keymap)  |
+| `gK`    | Enter the hover floating window           |
+| `<C-p>` | Switch to the previous hover source       |
+| `<C-n>` | Switch to the next hover source           |
+
+> [!NOTE]
+> `<C-p>` and `<C-n>` in normal mode are bound to hover source switching. They shadow the default "previous/next file in jumplist" behavior. Inside insert mode these keys still work normally in the completion menu.
 
 ### Autocompletion (nvim-cmp)
 
@@ -647,7 +692,8 @@ Triggered by `event = "InsertEnter"`.
 | `<C-f>`     | Insert | Scroll documentation window down                          |
 | `<C-Space>` | Insert | Trigger completion menu                                   |
 | `<C-e>`     | Insert | Close completion menu                                     |
-| `<CR>`      | Insert | Confirm selected completion (only if explicitly selected) |
+| `<CR>`      | Insert | Confirm selected completion                               |
+| `<Tab>`     | Insert | Confirm selected completion (same as `<CR>`)              |
 
 ### Formatting
 
@@ -677,8 +723,9 @@ Runs linters asynchronously on buffer events (`BufEnter`, `BufWritePost`, `Inser
 **Active linters** (others are commented out but available to enable):
 
 - `python`: `pylint`
+- `c` and `cpp`: `cpplint` (with filters: `-whitespace/indent`, `-legal/copyright`, `-whitespace/newline`, `-build/c++17`, `-build/include_subdir`, `-readability/todo`)
 - `latex` and `tex`: `chktex`
-- `markdown`: `markdownlint`
+- `markdown`: `markdownlint` (with `MD033` disabled to allow HTML elements)
 
 To enable a linter for another filetype, uncomment the relevant line in `linters_by_ft`.
 
