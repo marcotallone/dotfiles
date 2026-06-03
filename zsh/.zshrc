@@ -137,6 +137,53 @@ bindkey "^[[3;3~" kill-word
 eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
+# FIXME:
+# Always open in a tmux session or re-attach to an existing one
+# if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
+#   tmux new-session -A -s main
+# fi
+# Currently always displays:
+# [WARNING]: Console output during zsh initialization detected.
+
+# When using Powerlevel10k with instant prompt, console output during zsh
+# initialization may indicate issues.
+
+# You can:
+
+#   - Recommended: Change ~/.zshrc so that it does not perform console I/O
+#     after the instant prompt preamble. See the link below for details.
+
+#     * You will not see this error message again.
+#     * Zsh will start quickly and prompt will update smoothly.
+
+#   - Suppress this warning either by running p10k configure or by manually
+#     defining the following parameter:
+
+#       typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+#     * You will not see this error message again.
+#     * Zsh will start quickly but prompt will jump down after initialization.
+
+#   - Disable instant prompt either by running p10k configure or by manually
+#     defining the following parameter:
+
+#       typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+
+#     * You will not see this error message again.
+#     * Zsh will start slowly.
+
+#   - Do nothing.
+
+#     * You will see this error message every time you start zsh.
+#     * Zsh will start quickly but prompt will jump down after initialization.
+
+# For details, see:
+# https://github.com/romkatv/powerlevel10k#instant-prompt
+
+# -- console output produced during zsh initialization follows --
+
+# open terminal failed: not a terminal
+
 # PATH Environemnt Variable ────────────────────────────────────────────────────
 
 # export MANPATH="/usr/local/man:$MANPATH"
