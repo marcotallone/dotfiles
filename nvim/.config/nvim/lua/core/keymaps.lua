@@ -21,9 +21,8 @@ end, { desc = "Save" })
 -- Exit
 -- OLD: keymap.set("n", "<C-q>", ":qa<CR>", { desc = "Exit" })
 keymap.set("n", "<C-q>", function()
-    vim.cmd("qa")
+	vim.cmd("qa")
 end, { desc = "Exit" })
-
 
 -- Undo (in insert mode)
 vim.api.nvim_set_keymap("i", "<C-z>", "<C-o>u", { noremap = true, silent = true })
@@ -33,6 +32,30 @@ vim.api.nvim_set_keymap("i", "<C-a>", "<C-o><C-r>", { noremap = true, silent = t
 
 -- Clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+
+-- Macro recording indicator (persistent notification while recording)
+local recording_notif_id = nil
+
+vim.api.nvim_create_autocmd("RecordingEnter", {
+	callback = function()
+		local reg = vim.fn.reg_recording()
+		recording_notif_id = vim.notify("Recording macro in buffer: " .. reg, vim.log.levels.WARN, {
+			title = "Macro Recording",
+			timeout = false, -- stays until replaced
+		})
+	end,
+})
+
+vim.api.nvim_create_autocmd("RecordingLeave", {
+	callback = function()
+		-- Dismiss the recording notification and show completion message
+		if recording_notif_id then
+			require("notify").dismiss({ id = recording_notif_id })
+			recording_notif_id = nil
+		end
+		vim.notify("Macro saved", vim.log.levels.INFO, { title = "Macro Recording", timeout = 2000 })
+	end,
+})
 
 -- Increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })

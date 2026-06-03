@@ -7,4 +7,3 @@ return {
 	version = false, -- no releases
 	lazy = true, -- load on demand by other plugins
 }
-

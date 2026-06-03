@@ -1,0 +1,52 @@
+# ┌──────────────────────────────────────────────────────────────────────────┐ #
+# │   Ghostty configuration                                                 │ #
+# └──────────────────────────────────────────────────────────────────────────┘ #
+# │ version: apple
+# │ author: Marco Tallone
+# │ date: June 2026
+
+# INFO: https://ghostty.org/docs/config
+
+# Theme (auto-switches with macOS appearance)
+theme = light:tokyonight_day,dark:tokyonight_night
+
+# Shell
+shell-integration = zsh
+
+# Shift+Enter sends literal newline (useful in editors)
+keybind = shift+enter=text:\n
+
+# Left Option key acts as Alt 
+# (needed for helix/tmux keybinds)
+macos-option-as-alt = left
+
+# Auto-copy selected text to clipboard (handy with tmux)
+copy-on-select = clipboard
+
+# Font
+font-size = 12
+font-family = "JetbrainsMono Nerd Font"
+font-style = "Regular"
+
+# Cursor
+cursor-style = block
+shell-integration-features = no-cursor
+
+# Window
+
+# Padding
+# window-padding-x = 15
+# window-padding-y = 30
+
+# Remove titlebar and rounded corners for max terminal space
+# window-decoration = false
+
+# Distribute leftover pixels evenly instead of dumping at bottom
+window-padding-balance = true
+
+# Use Ghostty's own fullscreen instead of native macOS animation
+# macos-non-native-fullscreen = true
+
+
+# Other options
+link-url = true

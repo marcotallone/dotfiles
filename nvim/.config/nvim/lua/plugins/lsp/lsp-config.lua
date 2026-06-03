@@ -55,7 +55,7 @@ return {
 				opts.desc = "Go to next diagnostic"
 				vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
-                -- OLD:
+				-- OLD:
 				-- opts.desc = "Show documentation for what is under cursor"
 				-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 				-- NOTE: K is bound globally by hover.nvim (see lua/plugins/lsp/hover.lua)
@@ -84,17 +84,17 @@ return {
 		})
 
 		-- Servers that need extra settings
-        vim.lsp.config("clangd", {
-            -- NOTE: According to https://clangd.llvm.org/troubleshooting
-            -- It is recommended to use --query-driver over specifying system 
-            -- include paths manually as getting the latter right can be tricky 
-            -- (order of include paths matters).
-            cmd = {
-                "clangd",
-                "--query-driver=/usr/bin/gcc,/usr/bin/g++,/usr/bin/clang,/usr/bin/clang++",
-            },
-        })
-        vim.lsp.enable("clangd")
+		vim.lsp.config("clangd", {
+			-- NOTE: According to https://clangd.llvm.org/troubleshooting
+			-- It is recommended to use --query-driver over specifying system
+			-- include paths manually as getting the latter right can be tricky
+			-- (order of include paths matters).
+			cmd = {
+				"clangd",
+				"--query-driver=/usr/bin/gcc,/usr/bin/g++,/usr/bin/clang,/usr/bin/clang++",
+			},
+		})
+		vim.lsp.enable("clangd")
 
 		vim.lsp.config("ltex", {
 			filetypes = { "tex" }, -- ltex only targets LaTeX, not plain text
@@ -143,7 +143,7 @@ return {
 			},
 		})
 
-        -- FIXME:
+		-- FIXME:
 		-- -- Post-process LSP hover responses to clean up raw Doxygen tags
 		-- -- that clangd passes through without converting (\brief, \param, etc.)
 		-- local orig_hover = vim.lsp.handlers["textDocument/hover"]
@@ -180,7 +180,6 @@ return {
 		-- 		end
 		-- 	end
 		-- 	return orig_hover(err, result, ctx, config)
-		-- end	
-
-    end,
+		-- end
+	end,
 }
