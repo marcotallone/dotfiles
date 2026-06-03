@@ -54,4 +54,4 @@ link-url = true
 title = " "
 
 # Disable bell
-bell-features = no-attention,no-title
+bell-features = no-attention,no-title,no-system,no-audio,no-border
