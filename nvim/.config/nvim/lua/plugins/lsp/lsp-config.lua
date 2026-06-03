@@ -91,7 +91,7 @@ return {
 			-- (order of include paths matters).
 			cmd = {
 				"clangd",
-				"--query-driver=/usr/bin/gcc,/usr/bin/g++,/usr/bin/clang,/usr/bin/clang++",
+				"--query-driver=/Library/Developer/CommandLineTools/usr/bin/gcc,/Library/Developer/CommandLineTools/usr/bin/g++,/Library/Developer/CommandLineTools/usr/bin/clang,/Library/Developer/CommandLineTools/usr/bin/clang++",
 			},
 		})
 		vim.lsp.enable("clangd")
@@ -109,7 +109,8 @@ return {
 						useLibraryCodeForTypes = true,
 						typeCheckingMode = "basic",
 					},
-					pythonPath = "/usr/bin/python",
+                    -- Use global interpreter, uncomment to use current active
+					-- pythonPath = "/usr/bin/python",
 				},
 			},
 		})
