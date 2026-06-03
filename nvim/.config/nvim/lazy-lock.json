@@ -41,6 +41,7 @@
   "tokyonight.nvim": { "branch": "main", "commit": "545d72cde6400835d895160ecb5853874fd5156d" },
   "treesitter-modules.nvim": { "branch": "main", "commit": "290eec96bfc43ed28264661dd30e894a60c4b99c" },
   "trouble.nvim": { "branch": "main", "commit": "748ca2789044607f19786b1d837044544c55e80a" },
+  "venv-selector.nvim": { "branch": "main", "commit": "cc4bb3975de8835291f9bb45889e96c6b2795fc4" },
   "vim-commentary": { "branch": "master", "commit": "64a654ef4a20db1727938338310209b6a63f60c9" },
   "vim-maximizer": { "branch": "master", "commit": "2e54952fe91e140a2e69f35f22131219fcd9c5f1" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },

@@ -10,4 +10,5 @@ stow fastfetch
 stow p10k
 stow zathura
 stow clangd
+stow ghostty
 

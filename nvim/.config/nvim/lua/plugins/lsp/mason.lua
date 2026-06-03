@@ -14,7 +14,8 @@ return {
 	-- the following in the future:
 	-- "mason-org/mason.nvim",
 	version = "^2.0", -- pin to mason v2.x
-	event = "VeryLazy",
+	-- event = "VeryLazy",
+	lazy = false,
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",

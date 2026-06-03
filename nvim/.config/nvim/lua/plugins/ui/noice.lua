@@ -11,6 +11,8 @@ return {
 	},
 	opts = {
 		lsp = {
+			-- enable/disable progress messages from lsp servers
+			progress = { enabled = false },
 			-- Keep noice's treesitter-based markdown rendering for cmp docs.
 			-- convert_input_to_markdown_lines and stylize_markdown are intentionally
 			-- NOT overridden here: letting Neovim own those functions means Neovim

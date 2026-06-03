@@ -109,7 +109,8 @@ return {
 						useLibraryCodeForTypes = true,
 						typeCheckingMode = "basic",
 					},
-					pythonPath = "/usr/bin/python",
+					-- Use global interpreter, uncomment to use current active
+					-- pythonPath = "/usr/bin/python",
 				},
 			},
 		})
