@@ -99,7 +99,7 @@
 | `gd`         | Normal         | Go to definition (Telescope)                      |
 | `gi`         | Normal         | Go to implementations (Telescope)                 |
 | `gt`         | Normal         | Go to type definitions (Telescope)                |
-| `K`          | Normal         | Hover documentation (hover.nvim, all sources)     |
+| `K`          | Normal         | Hover documentation (LSP docs only)               |
 | `gK`         | Normal         | Enter the hover floating window                   |
 | `<C-p>`      | Normal         | Hover: switch to previous source                  |
 | `<C-n>`      | Normal         | Hover: switch to next source                      |

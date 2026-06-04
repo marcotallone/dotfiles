@@ -10,19 +10,22 @@ return {
 	config = function()
 		require("hover").setup({
 			providers = {
-				"hover.providers.lsp", -- LSP hover (primary)
-				"hover.providers.diagnostic", -- inline diagnostics on the line
-				"hover.providers.man", -- man-page entries
+				"hover.providers.lsp",         -- LSP hover (primary)
+				"hover.providers.diagnostic",  -- inline diagnostics on the line
+				"hover.providers.man",         -- man-page entries
 			},
 			preview_opts = {
 				border = "rounded",
 			},
 			preview_window = false, -- press K again to move docs to a preview window
-			title = true, -- show source name (e.g. "LSP") in the popup title
+			title = true,           -- show source name (e.g. "LSP") in the popup title
 		})
 
 		-- K opens hover; pressing K again enters the floating window
-		vim.keymap.set("n", "K", require("hover").open, { desc = "Show hover documentation" })
+		-- vim.keymap.set("n", "K", require("hover").open, { desc = "Show hover documentation" }) -- show-all buffers
+        vim.keymap.set("n", "K", function()
+			require("hover").open({ providers = { "hover.providers.lsp" } }) -- show LSP documentation only
+		end, { desc = "Show hover documentation" })
 		vim.keymap.set("n", "gK", require("hover").enter, { desc = "Enter hover window" })
 
 		-- Cycle through providers when multiple are available
@@ -39,15 +42,15 @@ return {
 		-- there are no diagnostics (e.g. when showing plain LSP docs).
 		local severity_hl = {
 			[vim.diagnostic.severity.ERROR] = "DiagnosticFloatingError",
-			[vim.diagnostic.severity.WARN] = "DiagnosticFloatingWarn",
-			[vim.diagnostic.severity.INFO] = "DiagnosticFloatingInfo",
-			[vim.diagnostic.severity.HINT] = "DiagnosticFloatingHint",
+			[vim.diagnostic.severity.WARN]  = "DiagnosticFloatingWarn",
+			[vim.diagnostic.severity.INFO]  = "DiagnosticFloatingInfo",
+			[vim.diagnostic.severity.HINT]  = "DiagnosticFloatingHint",
 		}
 
 		vim.api.nvim_create_autocmd("CursorMoved", {
 			callback = function()
 				local bufnr = vim.api.nvim_get_current_buf()
-				local row = vim.api.nvim_win_get_cursor(0)[1] - 1
+				local row   = vim.api.nvim_win_get_cursor(0)[1] - 1
 				local diags = vim.diagnostic.get(bufnr, { lnum = row })
 
 				local hl = "FloatBorder" -- default when no diagnostics
@@ -55,9 +58,7 @@ return {
 					-- Find the highest severity (lowest numeric value)
 					local worst = diags[1].severity
 					for _, d in ipairs(diags) do
-						if d.severity < worst then
-							worst = d.severity
-						end
+						if d.severity < worst then worst = d.severity end
 					end
 					hl = severity_hl[worst] or "FloatBorder"
 				end

@@ -658,7 +658,7 @@ The hover window border and title are dynamically colored based on the worst dia
 
 | Key     | Description                               |
 | ------- | ----------------------------------------- |
-| `K`     | Show hover documentation (global keymap)  |
+| `K`     | Show LSP hover documentation (global)     |
 | `gK`    | Enter the hover floating window           |
 | `<C-p>` | Switch to the previous hover source       |
 | `<C-n>` | Switch to the next hover source           |
