@@ -21,15 +21,15 @@ return {
 			TODO = { icon = " ", color = "info" },
 			HACK = { icon = " ", color = "warning" },
 			WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-			PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+			PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
 			NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-			TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+			TEST = { icon = " ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
 		},
 		gui_style = {
 			fg = "NONE", -- The gui style to use for the fg highlight group.
 			bg = "BOLD", -- The gui style to use for the bg highlight group.
 		},
-		merge_keywords = true, -- when true, custom keywords will be merged with the defaults
+		merge_keywords = false, -- when true, custom keywords will be merged with the defaults
 		-- highlighting of the line containing the todo comment
 		-- * before: highlights before the keyword (typically comment characters)
 		-- * keyword: highlights of the keyword
