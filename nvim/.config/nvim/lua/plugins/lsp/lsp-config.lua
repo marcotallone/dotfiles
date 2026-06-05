@@ -76,7 +76,7 @@ return {
 			"dockerls",
 			"fortls",
 			"marksman",
-			"autotools_ls",
+			-- "autotools_ls",
 			"texlab",
 			"emmet_ls",
 			"html",

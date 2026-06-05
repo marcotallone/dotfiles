@@ -30,6 +30,7 @@ return {
 				-- latex = { "latexindent" },
 				c = { "clang-format" },
 				cpp = { "clang-format" },
+				-- XXX: cmake = { "cmakelang" },
 			},
 			format_on_save = { -- enable format on save
 				lsp_fallback = true,

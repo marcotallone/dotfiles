@@ -186,3 +186,30 @@ keymap.set("n", "<S-Tab>", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 -- keymap.set("n", "<leader>lc", "O\\begin{code}{Pseudocode}<CR><CR>\\end{code}<ESC>kA", { desc = "Code Environment" })
 
 -- keymap.set("n", "<leader>lo", "O\\begin{code}{cbox}<CR><CR>\\end{cbox}<ESC>kA", { desc = "Box Environment" })
+
+-- FIXME:
+-- function to paste up to col 80
+-- local function paste_up_to_80()
+-- 	local current_col = vim.fn.col(".")
+-- 	local chars_available = 80 - current_col + 1
+
+-- 	if chars_available <= 0 then
+-- 		vim.notify("Already at or past column 80", vim.log.levels.INFO)
+-- 		return
+-- 	end
+
+-- 	-- Get the yanked text from the unnamed register
+-- 	local yanked_text = vim.fn.getreg('"')
+
+-- 	-- Limit yanked text to available space
+-- 	local text_to_paste = yanked_text:sub(1, chars_available)
+
+-- 	-- Paste the limited text
+-- 	vim.fn.setreg('"', text_to_paste)
+-- 	vim.cmd("normal! p")
+
+-- 	-- Restore the full yanked text (optional)
+-- 	vim.fn.setreg('"', yanked_text)
+-- end
+
+-- vim.keymap.set("n", "<Leader>p80", paste_up_to_80, { noremap = true })
