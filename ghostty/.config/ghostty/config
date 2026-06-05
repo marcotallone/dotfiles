@@ -23,6 +23,9 @@ macos-option-as-alt = left
 # Auto-copy selected text to clipboard (handy with tmux)
 copy-on-select = clipboard
 
+# Disable shell integration features for some options to work well
+shell-integration-features = no-cursor
+
 # Font
 font-size = 15
 font-family = "JetbrainsMono Nerd Font"
@@ -30,11 +33,8 @@ font-style = "Regular"
 
 # Cursor
 cursor-style = block
-shell-integration-features = no-cursor
 
-# Window
-
-# Padding
+# Window Padding
 # window-padding-x = 15
 # window-padding-y = 30
 
@@ -47,6 +47,17 @@ window-padding-balance = true
 # Use Ghostty's own fullscreen instead of native macOS animation
 # macos-non-native-fullscreen = true
 
-
-# Other options
+# Clickable URL links
 link-url = true
+
+# Hide title
+title = " "
+
+# Disable bell
+bell-features = no-attention,no-title,no-system,no-audio,no-border
+
+# Avoid confirmation on window closing
+confirm-close-surface = false
+
+window-colorspace = srgb
+
