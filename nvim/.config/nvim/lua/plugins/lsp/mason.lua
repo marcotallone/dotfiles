@@ -15,7 +15,7 @@ return {
 	-- "mason-org/mason.nvim",
 	version = "^2.0", -- pin to mason v2.x
 	-- event = "VeryLazy",
-    lazy = false,
+	lazy = false,
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -47,6 +47,15 @@ return {
 				"bashls",
 				"clangd",
 				"cmake",
+				-- WARNING: cmake language server hasn't received updates
+				--          in ~2 years (as of 2026).
+				-- There is a breaking change to fix manually as reported
+				-- in: https://github.com/regen100/cmake-language-server/issues/101
+				-- The fix is:
+				--      cd ~/.local/share/nvim/mason/packages/cmake-language-server/venv/lib/python3.13/site-packages/pygls
+				-- Then open 'server.py'
+				-- At the end of the file place:
+				--      addfrom pygls.lsp.server import LanguageServer
 				"pyright",
 				"dockerls",
 				"fortls",
@@ -75,6 +84,7 @@ return {
 				-- "vale", -- text linter (not useful)
 				"cpplint", -- c/c++ linter
 				"markdownlint", -- markdown linter
+				-- XXX: "cmakelang", -- cmake formatter and linter
 			},
 		})
 	end,

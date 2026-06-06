@@ -23,6 +23,7 @@ return {
 			-- text = { "vale" },
 			c = { "cpplint" },
 			cpp = { "cpplint" },
+			-- XXX: cmake = { "cmakelang" },
 		}
 
 		lint.linters.cpplint.args = vim.list_extend(

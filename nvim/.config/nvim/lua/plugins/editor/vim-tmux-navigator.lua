@@ -6,4 +6,3 @@ return {
 	version = false, -- no tags available
 	lazy = false, -- load on startup
 }
-

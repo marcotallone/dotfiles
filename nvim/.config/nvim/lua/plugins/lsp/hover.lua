@@ -22,7 +22,10 @@ return {
 		})
 
 		-- K opens hover; pressing K again enters the floating window
-		vim.keymap.set("n", "K", require("hover").open, { desc = "Show hover documentation" })
+		-- OLD: vim.keymap.set("n", "K", require("hover").open, { desc = "Show hover documentation" })
+		vim.keymap.set("n", "K", function()
+			require("hover").open({ providers = { "hover.providers.lsp" } }) -- show LSP documentation only
+		end, { desc = "Show hover documentation" })
 		vim.keymap.set("n", "gK", require("hover").enter, { desc = "Enter hover window" })
 
 		-- Cycle through providers when multiple are available

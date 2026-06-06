@@ -76,7 +76,7 @@ return {
 			"dockerls",
 			"fortls",
 			"marksman",
-			"autotools_ls",
+			-- "autotools_ls",
 			"texlab",
 			"emmet_ls",
 			"html",
@@ -109,7 +109,7 @@ return {
 						useLibraryCodeForTypes = true,
 						typeCheckingMode = "basic",
 					},
-                    -- Use global interpreter, uncomment to use current active
+					-- Use global interpreter, uncomment to use current active
 					-- pythonPath = "/usr/bin/python",
 				},
 			},
