@@ -59,5 +59,6 @@ bell-features = no-attention,no-title,no-system,no-audio,no-border
 # Avoid confirmation on window closing
 confirm-close-surface = false
 
+# Enable sRGB colors
 window-colorspace = srgb
 
