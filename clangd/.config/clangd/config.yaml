@@ -13,5 +13,7 @@ CompileFlags:
     -isystem, /opt/libtorch/include,
     -isystem, /opt/cuda/include,
     -isystem, /opt/TensorRT/include,
+    -isystem, /opt/MVS/include,
+    -isystem, /opt/MVS/MVFG/include
   ]
   BuiltinHeaders: QueryDriver
