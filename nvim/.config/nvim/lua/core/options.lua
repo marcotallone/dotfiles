@@ -56,7 +56,18 @@ vim.cmd("set ignorecase") -- ignore case in search patterns if all lowercase
 vim.cmd("set smartcase") -- when 'MiXeD cAsE' is used, becomes case sensitive
 
 -- System clipboard as default register
-vim.cmd("set clipboard=unnamedplus") -- use system clipboard as default register
+-- BUG: This setting is diabled in Fedora due to a notorious wayland bug where
+--      'unnamed' and 'unnamedplus' cause problems with long-press copy/delete 
+--      actions.
+-- INFO: - https://github.com/neovim/neovim/issues/23748
+--       - https://github.com/neovim/neovim/issues/11804
+--       - https://github.com/neovim/neovim/issues/12622
+--       - https://github.com/neovim/neovim/issues/17919
+--       - https://github.com/neovim/neovim/issues/25180
+-- NOTE: As an alternative use:
+--       - '"+y'          -> to yank selected lines to clipboard
+--       - 'Ctrl+Shift+v' -> to paste in nvim from system clipboard
+-- vim.cmd("set clipboard=unnamedplus") -- use system clipboard as default register
 
 -- Colorscheme options
 -- vim.o.termguicolors = true -- enable termguicolors for true color support (tmux)
