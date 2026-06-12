@@ -57,6 +57,10 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
 	end,
 })
 
+-- Copy to system clipboard
+keymap.set("n", "<leader>y", '"+y', { noremap = true, desc = "Copy to system clipboard" })
+keymap.set("v", "<leader>y", '"+y', { noremap = true, desc = "Copy to system clipboard" })
+
 -- Increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
