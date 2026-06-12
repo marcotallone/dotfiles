@@ -14,7 +14,8 @@ CompileFlags:
     -isystem, /opt/cuda/include,
     -isystem, /opt/TensorRT/include,
     -isystem, /opt/MVS/include,
-    -isystem, /opt/MVS/MVFG/include
-    -isystem, /usr/local/include/gtest
+    -isystem, /opt/MVS/MVFG/include,
+    -isystem, /usr/local/include/gtest,
+    -isystem, /usr/include/qt5,
   ]
   BuiltinHeaders: QueryDriver
