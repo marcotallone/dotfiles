@@ -30,7 +30,7 @@ return {
 			-- NOTE: clanged ignore / C ignore / C++ ignore
 			vim.deepcopy(lint.linters.cpplint.args),
 			{
-				"--filter=-whitespace/indent,-legal/copyright,-whitespace/newline,-build/c++17,-build/include_subdir,-readability/todo",
+				"--filter=-whitespace/indent,-legal/copyright,-whitespace/newline,-build/c++17,-build/include_subdir,-readability/todo,-whitespace/blank_line",
 			}
 		)
 
