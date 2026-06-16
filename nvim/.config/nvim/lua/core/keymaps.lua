@@ -72,28 +72,14 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
-keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
--- keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
+keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
+keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 keymap.set("n", "<S-Tab>", "<cmd>tabn<CR>", { desc = "Go to next tab" })
+keymap.set("n", "<C-A-[>", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
+keymap.set("n", "<C-A-]>", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 
--- -- Copilot suggestions
--- local function SuggestOneCharacter()
--- 	local suggestion = vim.fn["copilot#Accept"]("")
--- 	local bar = vim.fn["copilot#TextQueuedForInsertion"]()
--- 	return bar:sub(1, 1)
--- end
-
--- local function SuggestOneWord()
--- 	local suggestion = vim.fn["copilot#Accept"]("")
--- 	local bar = vim.fn["copilot#TextQueuedForInsertion"]()
--- 	return vim.fn.split(bar, [[[ .]\zs]])[1]
--- end
-
--- keymap.set("i", "<C-l>", SuggestOneCharacter, { expr = true, desc = "Suggest one character" })
--- keymap.set("i", "<C-A-l>", SuggestOneWord, { expr = true, desc = "Suggest one word" })
-
--- LaTeX keymaps
+----- LaTeX keymaps -----
 
 -- -- Equation* Environment
 -- vim.api.nvim_set_keymap(
@@ -191,29 +177,45 @@ keymap.set("n", "<S-Tab>", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 
 -- keymap.set("n", "<leader>lo", "O\\begin{code}{cbox}<CR><CR>\\end{cbox}<ESC>kA", { desc = "Box Environment" })
 
--- FIXME:
--- function to paste up to col 80
--- local function paste_up_to_80()
--- 	local current_col = vim.fn.col(".")
--- 	local chars_available = 80 - current_col + 1
+-- Pad with line up to column 80
+local function pad_to_column_80()
+	local line = vim.api.nvim_get_current_line()
+	-- Get the actual visual width of the line (handles UTF-8 correctly)
+	local current_width = vim.fn.strdisplaywidth(line)
+	local target_width = 80
 
--- 	if chars_available <= 0 then
--- 		vim.notify("Already at or past column 80", vim.log.levels.INFO)
--- 		return
--- 	end
+	-- No-op if the line is already at or past 80 columns
+	if current_width >= target_width then
+		return
+	end
 
--- 	-- Get the yanked text from the unnamed register
--- 	local yanked_text = vim.fn.getreg('"')
+	local pad_char = "─"
+	local padding = ""
 
--- 	-- Limit yanked text to available space
--- 	local text_to_paste = yanked_text:sub(1, chars_available)
+	-- Add a single space if the line isn't empty
+	if current_width > 0 then
+		padding = " "
+		current_width = current_width + 1
+	end
 
--- 	-- Paste the limited text
--- 	vim.fn.setreg('"', text_to_paste)
--- 	vim.cmd("normal! p")
+	-- Calculate how many '─' characters are needed
+	local chars_needed = target_width - current_width
+	if chars_needed > 0 then
+		padding = padding .. string.rep(pad_char, chars_needed)
+	end
 
--- 	-- Restore the full yanked text (optional)
--- 	vim.fn.setreg('"', yanked_text)
--- end
+	-- Update the line content
+	vim.api.nvim_set_current_line(line .. padding)
 
--- vim.keymap.set("n", "<Leader>p80", paste_up_to_80, { noremap = true })
+	-- Move the cursor to the end of the newly padded line
+	local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+	local new_line = vim.api.nvim_get_current_line()
+	vim.api.nvim_win_set_cursor(0, { row, #new_line })
+end
+
+-- Set the corresponding keymap
+vim.keymap.set("n", "<Leader>p", pad_to_column_80, {
+	noremap = true,
+	silent = true,
+	desc = "Pad line with '─' up to column 80",
+})
