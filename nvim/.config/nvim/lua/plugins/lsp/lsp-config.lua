@@ -28,6 +28,12 @@ return {
 				opts.desc = "Show LSP definitions"
 				vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 
+                opts.desc = "Show LSP definitions in new tab"
+                vim.keymap.set("n", "<leader>gd", function()
+                    vim.cmd("tab split")
+                    vim.lsp.buf.definition()
+                end, opts)
+
 				opts.desc = "Show LSP implementations"
 				vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
 
