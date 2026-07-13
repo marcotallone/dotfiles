@@ -1,9 +1,9 @@
-" ┌──────────────────────────────────────────────────────────────────────────┐ "
-" │   vimrc                                                                 │ "
-" └──────────────────────────────────────────────────────────────────────────┘ "
-" │ version: fedora
-" │ author: Marco Tallone
-" │ date: May 2026
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+" --- Options ---
 
 " Add line numbers
 set number
@@ -70,9 +70,21 @@ set hlsearch
 " Set the commands to save in history default number is 20.
 set history=1000
 
-" Mappings 
-noremap <C-s> :w<CR>
-noremap <C-q> :q<CR>
+"" -- Suggested: Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
 
-" Colorscheme
-" colorscheme slate
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+" Surround plugin
+Plug 'tpope/vim-surround'
