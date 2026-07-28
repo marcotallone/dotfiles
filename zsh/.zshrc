@@ -144,6 +144,11 @@ open(){
         ;;
     esac
 }
+
+# Allow docker network to use X11
+# NOTE: This is required to use GUIs properly from docker containers
+xhost +local:docker
+
 # PATH Environemnt Variable ────────────────────────────────────────────────────
 
 # ???
