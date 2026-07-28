@@ -147,7 +147,8 @@ open(){
 
 # Allow docker network to use X11
 # NOTE: This is required to use GUIs properly from docker containers
-xhost +local:docker
+xhost +local:docker > /dev/null 2>&1
+
 
 # PATH Environemnt Variable ────────────────────────────────────────────────────
 
