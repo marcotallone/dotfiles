@@ -191,6 +191,10 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+# Add latexminted to the path
+export PATH="$PATH:/Library/TeX/texbin/latexminted"
+
+
 # Aliases ──────────────────────────────────────────────────────────────────────
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
