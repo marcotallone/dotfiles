@@ -49,3 +49,7 @@ alias t="tmux"
 alias ta="tmux attach"
 alias tls="tmux ls"
 alias ts="tmux new-session"
+
+# Ghostscript
+alias ghs="/opt/homebrew/Cellar/ghostscript/10.07.1/bin/gs"
+alias ghostscript="/opt/homebrew/Cellar/ghostscript/10.07.1/bin/gs"
